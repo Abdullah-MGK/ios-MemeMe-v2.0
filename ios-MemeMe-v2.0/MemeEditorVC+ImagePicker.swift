@@ -65,7 +65,8 @@ extension MemeEditorVC {
         // Create the meme
         let meme = Meme(topTxt: topTF.text!, bottomTxt: bottomTF.text!, originalImg: memeImgView.image!, memedImg: memedImg)
         
-        print(meme)
+        // Add the meme to the memes list
+        (UIApplication.shared.delegate as! AppDelegate).memes.append(meme)
         
     }
     
