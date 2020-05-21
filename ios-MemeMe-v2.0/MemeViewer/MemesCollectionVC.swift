@@ -31,9 +31,21 @@ class MemesCollectionVC: UIViewController, UICollectionViewDelegate, UICollectio
         
         let reuseId = "simpleItem"
         
-        let item = collectionView.dequeueReusableCell(withReuseIdentifier: reuseId, for: IndexPath())
+        let item = collectionView.dequeueReusableCell(withReuseIdentifier: reuseId, for: indexPath) as! MemeCollectionViewCell
+        let meme = memes[indexPath.row]
+        
+        item.nameLabel!.text = meme.topTxt
+        item.imageView!.image = meme.memedImg
         
         return item
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        let detailController = storyboard!.instantiateViewController(withIdentifier: "VillainDetailSB") as! MemeDetailViewController
+        detailController.meme = memes[indexPath.row]
+            navigationController?.pushViewController(detailController, animated: true)
+        
     }
     
 }
