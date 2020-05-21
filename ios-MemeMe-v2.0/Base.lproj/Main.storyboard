@@ -147,7 +147,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="FrJ-in-BQI"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Table" id="N3Y-0H-RVT"/>
+                    <tabBarItem key="tabBarItem" title="Table" selectedImage="list.bullet" catalog="system" id="N3Y-0H-RVT"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="78K-NM-Ftt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -163,7 +163,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="hVi-nm-W3w"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Collection" id="bin-JS-813"/>
+                    <tabBarItem key="tabBarItem" title="Collection" selectedImage="square.grid.2x2.fill" catalog="system" id="bin-JS-813"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zsb-H0-8ck" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -175,6 +175,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="M2V-iA-9vY" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="7Ec-bT-UMN">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
@@ -189,6 +190,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="list.bullet" catalog="system" width="64" height="44"/>
         <image name="photo" catalog="system" width="64" height="46"/>
+        <image name="square.grid.2x2.fill" catalog="system" width="64" height="56"/>
     </resources>
 </document>

@@ -8,23 +8,32 @@
 
 import UIKit
 
-class MemesCollectionVC: UIViewController {
+class MemesCollectionVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+    
+    var memes: [Meme]! {
+        return (UIApplication.shared.delegate as! AppDelegate).memes
+    }
+    
+    @IBOutlet weak var memesCollectionView: UICollectionView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        memesCollectionView.delegate = self
+        memesCollectionView.dataSource = self
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        
+        return memes.count
     }
-    */
-
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        let reuseId = "simpleItem"
+        
+        let item = collectionView.dequeueReusableCell(withReuseIdentifier: reuseId, for: IndexPath())
+        
+        return item
+    }
+    
 }

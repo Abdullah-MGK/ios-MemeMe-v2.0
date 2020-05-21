@@ -17,6 +17,7 @@
 		3B56D1EC247174E400415BB6 /* MemeEditorVC+ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B56D1EB247174E400415BB6 /* MemeEditorVC+ImagePicker.swift */; };
 		3B90D0462476BE7100994C8C /* MemesTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B90D0452476BE7100994C8C /* MemesTableVC.swift */; };
 		3B90D0482476BE8600994C8C /* MemesCollectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B90D0472476BE8600994C8C /* MemesCollectionVC.swift */; };
+		3B90D04C2476CD4000994C8C /* MemeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B90D04B2476CD4000994C8C /* MemeCollectionViewCell.swift */; };
 		3BE51C25247082B500521071 /* Meme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE51C24247082B500521071 /* Meme.swift */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +34,7 @@
 		3B56D1EB247174E400415BB6 /* MemeEditorVC+ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MemeEditorVC+ImagePicker.swift"; sourceTree = "<group>"; };
 		3B90D0452476BE7100994C8C /* MemesTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemesTableVC.swift; sourceTree = "<group>"; };
 		3B90D0472476BE8600994C8C /* MemesCollectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemesCollectionVC.swift; sourceTree = "<group>"; };
+		3B90D04B2476CD4000994C8C /* MemeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemeCollectionViewCell.swift; sourceTree = "<group>"; };
 		3BE51C24247082B500521071 /* Meme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meme.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -70,6 +72,7 @@
 				3B2F966F246D5E6200F1AF1C /* SceneDelegate.swift */,
 				3B90D0452476BE7100994C8C /* MemesTableVC.swift */,
 				3B90D0472476BE8600994C8C /* MemesCollectionVC.swift */,
+				3B90D04B2476CD4000994C8C /* MemeCollectionViewCell.swift */,
 				3B2F9671246D5E6200F1AF1C /* MemeEditorVC.swift */,
 				3B56D1EB247174E400415BB6 /* MemeEditorVC+ImagePicker.swift */,
 				3B56D1E9247155F000415BB6 /* MemeEditorVC+Keyboard.swift */,
@@ -156,6 +159,7 @@
 				3B56D1EA247155F000415BB6 /* MemeEditorVC+Keyboard.swift in Sources */,
 				3B90D0462476BE7100994C8C /* MemesTableVC.swift in Sources */,
 				3B2F9672246D5E6200F1AF1C /* MemeEditorVC.swift in Sources */,
+				3B90D04C2476CD4000994C8C /* MemeCollectionViewCell.swift in Sources */,
 				3B56D1EC247174E400415BB6 /* MemeEditorVC+ImagePicker.swift in Sources */,
 				3BE51C25247082B500521071 /* Meme.swift in Sources */,
 				3B2F966E246D5E6200F1AF1C /* AppDelegate.swift in Sources */,
