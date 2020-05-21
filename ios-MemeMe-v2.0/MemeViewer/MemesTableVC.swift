@@ -29,7 +29,7 @@ class MemesTableVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let reuseId = "simpleCell"
+        let reuseId = "memeCell"
         
         let cell = tableView.dequeueReusableCell(withIdentifier: reuseId)!
         
