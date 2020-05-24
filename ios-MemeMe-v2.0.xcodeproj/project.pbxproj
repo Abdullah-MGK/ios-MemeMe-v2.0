@@ -86,10 +86,10 @@
 		3B90D04F2476D21100994C8C /* MemeViewer */ = {
 			isa = PBXGroup;
 			children = (
-				3B90D04D2476D0BC00994C8C /* MemeDetailVC.swift */,
 				3BAE5FFD247A0C3A002FCEA3 /* MemeTableVC.swift */,
 				3BAE5FFF247A0CBD002FCEA3 /* MemeCollectionVC.swift */,
 				3B90D04B2476CD4000994C8C /* MemeCollectionViewCell.swift */,
+				3B90D04D2476D0BC00994C8C /* MemeDetailVC.swift */,
 			);
 			path = MemeViewer;
 			sourceTree = "<group>";

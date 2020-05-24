@@ -39,6 +39,12 @@ class MemeEditorVC: UIViewController, UIImagePickerControllerDelegate, UINavigat
         shareBTN.isEnabled = memeImgView.image != nil
         subscribeToKeyboardNotification()
         
+        // hide Tabbar
+        // tabBarController?.tabBar.isHidden = true
+        // navigationController?.toolbar.isHidden = false
+        // tabBarController?.tabBar.layer.zPosition = -1
+        // navigationController?.toolbar.layer.zPosition = 0
+
     }
     
     override func viewDidLoad() {
