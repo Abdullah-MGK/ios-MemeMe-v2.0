@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MemeCollectionViewCell: UICollectionViewCell {
+class MemeCollectionViewCell2: UICollectionViewCell {
     
     @IBOutlet weak var nameLabel: UILabel?
     @IBOutlet weak var imageView: UIImageView?

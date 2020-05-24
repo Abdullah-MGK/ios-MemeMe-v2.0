@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MemesTableVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class MemesTableVC2: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var memes: [Meme]! {
         return (UIApplication.shared.delegate as! AppDelegate).memes
