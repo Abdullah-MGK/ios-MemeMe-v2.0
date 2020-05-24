@@ -8,18 +8,33 @@
 
 import UIKit
 
-class MemesCollectionVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class MemesCollectionVC2: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
     var memes: [Meme]! {
         return (UIApplication.shared.delegate as! AppDelegate).memes
     }
     
     @IBOutlet weak var memesCollectionView: UICollectionView!
+    @IBOutlet weak var memesCollectionViewFlowLayout: UICollectionViewFlowLayout!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         memesCollectionView.delegate = self
         memesCollectionView.dataSource = self
+        
+        // can be accessed via storyboard
+        let space: CGFloat = 3.0
+        let dimension: CGFloat = (view.frame.size.width - (2 * space)) / 3.0
+        let dimension2: CGFloat = ( view.frame.size.height - (2 * space) ) / 3.0
+        
+        // governs the space between items within a row or column (margin)
+        memesCollectionViewFlowLayout.minimumInteritemSpacing = space
+        
+        // governs the space between rows or columns (padding)
+        memesCollectionViewFlowLayout.minimumLineSpacing = space
+        
+        // governs cell size
+        memesCollectionViewFlowLayout.itemSize = CGSize(width: dimension, height: dimension2)
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
