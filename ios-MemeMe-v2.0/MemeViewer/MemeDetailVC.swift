@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MemeDetailViewController: UIViewController {
+class MemeDetailVC: UIViewController {
 
     @IBOutlet weak var memedImageView: UIImageView!
     

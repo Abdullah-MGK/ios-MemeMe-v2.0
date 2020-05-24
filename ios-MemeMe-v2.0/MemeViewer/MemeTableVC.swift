@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MemeTableViewController: UITableViewController {
+class MemeTableVC: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
