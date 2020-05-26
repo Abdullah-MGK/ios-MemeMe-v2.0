@@ -19,23 +19,13 @@ class MemeTableVC: UITableViewController, MemeEditorDelegate {
         return (UIApplication.shared.delegate as! AppDelegate).memes
     }
     
-    // TODO: update table after modal dismissed
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        print("willAppear")
-        tableView.reloadData()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        print("didAppear")
-        tableView.reloadData()
+        updateTable()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("didLoad")
-        tableView.reloadData()
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -43,16 +33,13 @@ class MemeTableVC: UITableViewController, MemeEditorDelegate {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
-    
-    // MARK: - Table view data source
-    
+        
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("count")
+
         return memes.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        print("cell")
 
         let cell = tableView.dequeueReusableCell(withIdentifier: memeCellId, for: indexPath)
         
@@ -76,6 +63,7 @@ class MemeTableVC: UITableViewController, MemeEditorDelegate {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
+        // assign self as delgate for MemeEditorVC in order to update the tableView when MemeEditorVC is dismissed
         let memeEditorController = (segue.destination as! UINavigationController).topViewController as! MemeEditorVC
         
         memeEditorController.delegate = self

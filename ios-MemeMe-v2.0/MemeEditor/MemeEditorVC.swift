@@ -65,8 +65,10 @@ class MemeEditorVC: UIViewController, UIImagePickerControllerDelegate, UINavigat
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
+        // update tableview when dismissing this viewcontroller
         delegate.updateTable()
         
+        // unsubscribe from keyboard notification
         unsubscribeFromKeyboardNotification()
     }
     
