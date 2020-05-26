@@ -21,7 +21,7 @@ extension MemeEditorVC {
         // decide source based on the button
         imagePicker.sourceType = sourceType
         
-        self.present(imagePicker, animated: true, completion: nil)
+        present(imagePicker, animated: true, completion: nil)
         
     }
     

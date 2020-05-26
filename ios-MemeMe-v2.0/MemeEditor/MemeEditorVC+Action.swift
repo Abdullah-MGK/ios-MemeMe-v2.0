@@ -20,7 +20,7 @@ extension MemeEditorVC {
             }
         }
         
-        self.present(controller, animated: true, completion: nil)
+        present(controller, animated: true, completion: nil)
     }
     
     func save() {

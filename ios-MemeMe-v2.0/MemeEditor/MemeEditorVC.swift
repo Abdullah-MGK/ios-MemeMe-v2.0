@@ -105,7 +105,7 @@ class MemeEditorVC: UIViewController, UIImagePickerControllerDelegate, UINavigat
         controller.addAction(cancelAction)
         
         // present alert
-        self.present(controller, animated: true, completion: nil)
+        present(controller, animated: true, completion: nil)
         
     }
     
