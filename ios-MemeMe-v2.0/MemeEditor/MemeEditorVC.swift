@@ -32,7 +32,7 @@ class MemeEditorVC: UIViewController, UIImagePickerControllerDelegate, UINavigat
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+                
         // if in viewWillAppear() or viewDidAppear(), every time the screen appears, the button is disabled, but if in viewDidLoad() it will  be disabled at the first time
         pickFromCamBTN.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
         
