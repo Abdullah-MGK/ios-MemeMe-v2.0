@@ -14,8 +14,9 @@ class MemeCollectionVC: UICollectionViewController {
         return (UIApplication.shared.delegate as! AppDelegate).memes
     }
     
-    let reuseIdentifier = "MemeItem"
-    
+    let memeItemId = "MemeItem"
+    let memeDetailId = "MemeDetailVC"
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         collectionView.reloadData()
@@ -51,7 +52,7 @@ class MemeCollectionVC: UICollectionViewController {
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let item = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! MemeCollectionViewCell
+        let item = collectionView.dequeueReusableCell(withReuseIdentifier: memeItemId, for: indexPath) as! MemeCollectionViewCell
             
         let meme = memes[indexPath.row]
         item.imageView!.image = meme.memedImg
@@ -61,7 +62,7 @@ class MemeCollectionVC: UICollectionViewController {
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        let detailController = storyboard!.instantiateViewController(withIdentifier: "MemeDetailVC") as! MemeDetailVC
+        let detailController = storyboard!.instantiateViewController(withIdentifier: memeDetailId) as! MemeDetailVC
         
         detailController.meme = memes[indexPath.row]
         

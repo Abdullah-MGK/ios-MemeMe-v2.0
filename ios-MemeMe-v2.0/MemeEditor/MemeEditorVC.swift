@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol MemeEditorDelegate {
+    func updateTable()
+}
+
 class MemeEditorVC: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
     
     @IBOutlet weak var memeImgView: UIImageView!
@@ -21,6 +25,8 @@ class MemeEditorVC: UIViewController, UIImagePickerControllerDelegate, UINavigat
         case camera = 0, album
     }
     
+    var delegate: MemeEditorDelegate!
+    
     // set defaultTextAttributes
     let memeTextAttributes: [NSAttributedString.Key: Any] = [
         .strokeColor: UIColor.black,
@@ -29,7 +35,7 @@ class MemeEditorVC: UIViewController, UIImagePickerControllerDelegate, UINavigat
         // negative so that it makes stroke and fill
         .strokeWidth: -3
     ]
-    
+        
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
                 
@@ -58,6 +64,9 @@ class MemeEditorVC: UIViewController, UIImagePickerControllerDelegate, UINavigat
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        
+        delegate.updateTable()
+        
         unsubscribeFromKeyboardNotification()
     }
     

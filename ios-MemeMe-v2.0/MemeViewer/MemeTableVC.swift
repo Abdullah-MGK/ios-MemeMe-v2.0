@@ -8,9 +8,11 @@
 
 import UIKit
 
-class MemeTableVC: UITableViewController {
+class MemeTableVC: UITableViewController, MemeEditorDelegate {
     
-    let reuseIdentifier = "MemeCell"
+    let memeCellId = "MemeCell"
+    let memeEditorId = "MemeEditorVC"
+    let memeDetailId = "MemeDetailVC"
     
     var memes: [Meme]! {
         print("meme")
@@ -52,7 +54,7 @@ class MemeTableVC: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         print("cell")
 
-        let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: memeCellId, for: indexPath)
         
         let meme = memes[indexPath.row]
         cell.textLabel?.text = "\(meme.topTxt), \(meme.bottomTxt)"
@@ -64,12 +66,26 @@ class MemeTableVC: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let detailController = storyboard!.instantiateViewController(withIdentifier: "MemeDetailVC") as! MemeDetailVC
+        let detailController = storyboard!.instantiateViewController(withIdentifier: memeDetailId) as! MemeDetailVC
         
         detailController.meme = memes[indexPath.row]
         
         navigationController?.pushViewController(detailController, animated: true)
         
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        // let memeEditorController = storyboard!.instantiateViewController(withIdentifier: memeEditorId) as! MemeEditorVC
+        
+        let memeEditorController = segue.destination as! MemeEditorVC
+        
+        memeEditorController.delegate = self
+        
+    }
+    
+    func updateTable() {
+        tableView.reloadData()
     }
     
     /*
