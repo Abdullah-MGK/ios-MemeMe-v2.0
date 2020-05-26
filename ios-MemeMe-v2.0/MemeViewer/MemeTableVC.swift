@@ -21,7 +21,7 @@ class MemeTableVC: UITableViewController, MemeEditorDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        updateTable()
+        updateView()
     }
     
     override func viewDidLoad() {
@@ -70,7 +70,7 @@ class MemeTableVC: UITableViewController, MemeEditorDelegate {
         
     }
     
-    func updateTable() {
+    func updateView() {
         tableView.reloadData()
     }
     

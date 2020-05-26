@@ -214,7 +214,11 @@
                         </connections>
                     </collectionView>
                     <navigationItem key="navigationItem" title="Sent Memes" id="Q02-HW-2MO">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Wob-F2-EeL"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Wob-F2-EeL">
+                            <connections>
+                                <segue destination="RIq-SP-FD3" kind="presentation" id="o3Y-Ft-3Ba"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vuI-MT-crw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -347,4 +351,7 @@
         <image name="photo" catalog="system" width="64" height="46"/>
         <image name="square.grid.2x2.fill" catalog="system" width="64" height="56"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="o3Y-Ft-3Ba"/>
+    </inferredMetricsTieBreakers>
 </document>

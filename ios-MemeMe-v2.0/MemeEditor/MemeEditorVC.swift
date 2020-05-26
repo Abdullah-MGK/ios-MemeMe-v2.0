@@ -9,7 +9,7 @@
 import UIKit
 
 protocol MemeEditorDelegate {
-    func updateTable()
+    func updateView()
 }
 
 class MemeEditorVC: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
@@ -66,7 +66,7 @@ class MemeEditorVC: UIViewController, UIImagePickerControllerDelegate, UINavigat
         super.viewWillDisappear(animated)
         
         // update tableview when dismissing this viewcontroller
-        delegate.updateTable()
+        delegate.updateView()
         
         // unsubscribe from keyboard notification
         unsubscribeFromKeyboardNotification()

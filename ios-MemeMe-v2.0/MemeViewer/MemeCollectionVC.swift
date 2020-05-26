@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MemeCollectionVC: UICollectionViewController {
+class MemeCollectionVC: UICollectionViewController, MemeEditorDelegate {
     
     var memes: [Meme]! {
         return (UIApplication.shared.delegate as! AppDelegate).memes
@@ -19,13 +19,12 @@ class MemeCollectionVC: UICollectionViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        collectionView.reloadData()
+        updateView()
 
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        collectionView.reloadData()
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -68,6 +67,19 @@ class MemeCollectionVC: UICollectionViewController {
         
         navigationController?.pushViewController(detailController, animated: true)
         
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        // assign self as delgate for MemeEditorVC in order to update the tableView when MemeEditorVC is dismissed
+        let memeEditorController = (segue.destination as! UINavigationController).topViewController as! MemeEditorVC
+        
+        memeEditorController.delegate = self
+        
+    }
+    
+    func updateView() {
+        collectionView.reloadData()
     }
 
 }
