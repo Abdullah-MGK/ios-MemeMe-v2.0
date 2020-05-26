@@ -17,6 +17,7 @@ class MemeTableVC: UITableViewController {
         return (UIApplication.shared.delegate as! AppDelegate).memes
     }
     
+    // TODO: update table after modal dismissed
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         print("willAppear")
@@ -53,13 +54,13 @@ class MemeTableVC: UITableViewController {
 
         let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath)
         
-        cell.textLabel?.text = memes[indexPath.row].topTxt
-        cell.detailTextLabel?.text = "details"
-        cell.imageView?.image = UIImage(named: "HighPitch")
+        let meme = memes[indexPath.row]
+        cell.textLabel?.text = "\(meme.topTxt), \(meme.bottomTxt)"
+        // cell.detailTextLabel?.text = meme.bottomTxt
+        cell.imageView?.image = meme.memedImg
         
         return cell
     }
-    
     
     /*
      // MARK: - Navigation

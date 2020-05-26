@@ -74,10 +74,10 @@
 			children = (
 				3B2F966D246D5E6200F1AF1C /* AppDelegate.swift */,
 				3B2F966F246D5E6200F1AF1C /* SceneDelegate.swift */,
+				3B2F9673246D5E6200F1AF1C /* Main.storyboard */,
 				3B90D04F2476D21100994C8C /* MemeViewer */,
 				3B90D0502476D22000994C8C /* MemeEditor */,
 				3B90D0512476D23700994C8C /* Models */,
-				3B2F9673246D5E6200F1AF1C /* Main.storyboard */,
 				3B2F9676246D5E6500F1AF1C /* Assets.xcassets */,
 				3B2F9678246D5E6500F1AF1C /* LaunchScreen.storyboard */,
 				3B2F967B246D5E6500F1AF1C /* Info.plist */,

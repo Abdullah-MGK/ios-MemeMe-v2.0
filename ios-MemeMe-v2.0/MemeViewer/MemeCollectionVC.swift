@@ -10,10 +10,21 @@ import UIKit
 
 class MemeCollectionVC: UICollectionViewController {
     
+    var memes: [Meme]! {
+        return (UIApplication.shared.delegate as! AppDelegate).memes
+    }
+    
     let reuseIdentifier = "MemeItem"
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        collectionView.reloadData()
+
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        collectionView.reloadData()
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -36,33 +47,25 @@ class MemeCollectionVC: UICollectionViewController {
 
     // MARK: UICollectionViewDataSource
 
-    override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
-
-
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of items
-        return 0
+
+        return memes.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
+        
+        let item = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! MemeCollectionViewCell
+            
+        let meme = memes[indexPath.row]
+        item.imageView!.image = meme.memedImg
     
-        // Configure the cell
-    
-        return cell
+        return item
     }
 
 }
 
 /*
  class MemesCollectionVC2: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
-     
-     var memes: [Meme]! {
-         return (UIApplication.shared.delegate as! AppDelegate).memes
-     }
      
      @IBOutlet weak var memesCollectionView: UICollectionView!
      @IBOutlet weak var memesCollectionViewFlowLayout: UICollectionViewFlowLayout!
@@ -85,24 +88,6 @@ class MemeCollectionVC: UICollectionViewController {
          
          // governs cell size
          memesCollectionViewFlowLayout.itemSize = CGSize(width: dimension, height: dimension2)
-     }
-     
-     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-         
-         return memes.count
-     }
-     
-     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-         
-         let reuseId = "memeItem"
-         
-         let item = collectionView.dequeueReusableCell(withReuseIdentifier: reuseId, for: indexPath) as! MemeCollectionViewCell2
-         let meme = memes[indexPath.row]
-         
-         item.nameLabel!.text = meme.topTxt
-         item.imageView!.image = meme.memedImg
-         
-         return item
      }
      
      func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
