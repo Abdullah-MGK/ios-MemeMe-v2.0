@@ -39,11 +39,11 @@ class MemeEditorVC: UIViewController, UIImagePickerControllerDelegate, UINavigat
         shareBTN.isEnabled = memeImgView.image != nil
         subscribeToKeyboardNotification()
         
-        // hide Tabbar
+        // hide Tabbar when using same navigation controller with push
         // tabBarController?.tabBar.isHidden = true
         // navigationController?.toolbar.isHidden = false
-        // tabBarController?.tabBar.layer.zPosition = -1
-        // navigationController?.toolbar.layer.zPosition = 0
+        // and in previous controller add this
+        // hidesBottomBarWhenPushed
 
     }
     
