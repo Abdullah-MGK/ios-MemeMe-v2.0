@@ -25,6 +25,7 @@ class MemeEditorVC: UIViewController, UIImagePickerControllerDelegate, UINavigat
         case camera = 0, album
     }
     
+    var meme: Meme?
     var delegate: MemeEditorDelegate!
     
     // set defaultTextAttributes
@@ -38,7 +39,13 @@ class MemeEditorVC: UIViewController, UIImagePickerControllerDelegate, UINavigat
         
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-                
+        
+        if let meme = meme {
+            memeImgView.image = meme.originalImg
+            topTF.text = meme.topTxt
+            bottomTF.text = meme.bottomTxt
+        }
+        
         // if in viewWillAppear() or viewDidAppear(), every time the screen appears, the button is disabled, but if in viewDidLoad() it will  be disabled at the first time
         pickFromCamBTN.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
         
@@ -50,7 +57,7 @@ class MemeEditorVC: UIViewController, UIImagePickerControllerDelegate, UINavigat
         // navigationController?.toolbar.isHidden = false
         // and in previous controller add this
         // hidesBottomBarWhenPushed
-
+        
     }
     
     override func viewDidLoad() {

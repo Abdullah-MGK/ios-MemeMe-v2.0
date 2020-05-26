@@ -11,7 +11,6 @@ import UIKit
 class MemeTableVC: UITableViewController, MemeEditorDelegate {
     
     let memeCellId = "MemeCell"
-    let memeEditorId = "MemeEditorVC"
     let memeDetailId = "MemeDetailVC"
     
     var memes: [Meme]! {
