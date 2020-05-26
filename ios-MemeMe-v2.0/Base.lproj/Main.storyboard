@@ -11,7 +11,7 @@
         <!--Meme Name-->
         <scene sceneID="gLL-pG-lc6">
             <objects>
-                <viewController id="hv4-jM-g6g" customClass="MemeEditorVC" customModule="ios_MemeMe_v2_0" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MemeEditorVC" id="hv4-jM-g6g" customClass="MemeEditorVC" customModule="ios_MemeMe_v2_0" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cyz-In-4Ih">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -118,7 +118,7 @@
         <!--Meme DetailVC-->
         <scene sceneID="XR4-Fi-jEP">
             <objects>
-                <viewController id="2OG-hw-Rou" customClass="MemeDetailVC" customModule="ios_MemeMe_v2_0" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MemeDetailVC" id="2OG-hw-Rou" customClass="MemeDetailVC" customModule="ios_MemeMe_v2_0" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ULk-vU-Ph0">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -178,7 +178,7 @@
         <!--Sent Memes-->
         <scene sceneID="F7g-C0-IUK">
             <objects>
-                <collectionViewController id="8sM-pZ-Alr" customClass="MemeCollectionVC" customModule="ios_MemeMe_v2_0" customModuleProvider="target" sceneMemberID="viewController">
+                <collectionViewController storyboardIdentifier="MemeCollectionVC" id="8sM-pZ-Alr" customClass="MemeCollectionVC" customModule="ios_MemeMe_v2_0" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="BrF-kO-gUQ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -224,7 +224,7 @@
         <!--Sent Memes-->
         <scene sceneID="7M5-ek-FrA">
             <objects>
-                <tableViewController id="ccz-6m-88f" customClass="MemeTableVC" customModule="ios_MemeMe_v2_0" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="MemeTableVC" id="ccz-6m-88f" customClass="MemeTableVC" customModule="ios_MemeMe_v2_0" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="QUl-L3-a15">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

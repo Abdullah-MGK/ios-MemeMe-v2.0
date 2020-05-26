@@ -29,9 +29,6 @@ class MemeCollectionVC: UICollectionViewController {
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
-        // Register cell classes
-        collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-
         // Do any additional setup after loading the view.
     }
 
@@ -61,13 +58,22 @@ class MemeCollectionVC: UICollectionViewController {
     
         return item
     }
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        let detailController = storyboard!.instantiateViewController(withIdentifier: "MemeDetailVC") as! MemeDetailVC
+        
+        detailController.meme = memes[indexPath.row]
+        
+        navigationController?.pushViewController(detailController, animated: true)
+        
+    }
 
 }
 
 /*
  class MemesCollectionVC2: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
      
-     @IBOutlet weak var memesCollectionView: UICollectionView!
      @IBOutlet weak var memesCollectionViewFlowLayout: UICollectionViewFlowLayout!
 
      override func viewDidLoad() {
@@ -88,14 +94,6 @@ class MemeCollectionVC: UICollectionViewController {
          
          // governs cell size
          memesCollectionViewFlowLayout.itemSize = CGSize(width: dimension, height: dimension2)
-     }
-     
-     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-         
-         let detailController = storyboard!.instantiateViewController(withIdentifier: "VillainDetailSB") as! MemeDetailViewController
-         detailController.meme = memes[indexPath.row]
-             navigationController?.pushViewController(detailController, animated: true)
-         
      }
      
  }
