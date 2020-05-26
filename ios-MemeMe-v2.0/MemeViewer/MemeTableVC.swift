@@ -76,9 +76,7 @@ class MemeTableVC: UITableViewController, MemeEditorDelegate {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        // let memeEditorController = storyboard!.instantiateViewController(withIdentifier: memeEditorId) as! MemeEditorVC
-        
-        let memeEditorController = segue.destination as! MemeEditorVC
+        let memeEditorController = (segue.destination as! UINavigationController).topViewController as! MemeEditorVC
         
         memeEditorController.delegate = self
         
