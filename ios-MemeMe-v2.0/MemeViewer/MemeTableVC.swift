@@ -10,7 +10,7 @@ import UIKit
 
 class MemeTableVC: UITableViewController {
     
-    private let reuseIdentifier = "Cell"
+    private let reuseIdentifier = "MemeCell"
     
     var memes: [Meme]! {
         return (UIApplication.shared.delegate as! AppDelegate).memes
