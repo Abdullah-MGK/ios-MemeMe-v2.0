@@ -8,9 +8,9 @@
 
 import UIKit
 
-private let reuseIdentifier = "MemeItem"
-
 class MemeCollectionVC: UICollectionViewController {
+    
+    let reuseIdentifier = "MemeItem"
 
     override func viewDidLoad() {
         super.viewDidLoad()

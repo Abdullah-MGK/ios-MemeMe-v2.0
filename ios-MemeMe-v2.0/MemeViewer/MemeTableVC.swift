@@ -10,7 +10,7 @@ import UIKit
 
 class MemeTableVC: UITableViewController {
     
-    private let reuseIdentifier = "MemeCell"
+    let reuseIdentifier = "MemeCell"
     
     var memes: [Meme]! {
         print("meme")

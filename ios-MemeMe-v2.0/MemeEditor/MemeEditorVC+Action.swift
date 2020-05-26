@@ -6,7 +6,6 @@
 //  Copyright © 2020 Team IOS. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
 extension MemeEditorVC {
