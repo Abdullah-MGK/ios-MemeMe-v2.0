@@ -31,12 +31,12 @@ class MemeDetailVC: UIViewController {
     
     @objc func editTapped() {
         
+        //let memeEditorController = storyboard!.instantiateViewController(withIdentifier: memeEditorId) as! MemeEditorVC
+        
         // let memeEditorNavigationController = UINavigationController(rootViewController: memeEditorController)
         
         let memeEditorNavigationController = storyboard!.instantiateViewController(withIdentifier: memeEditorNavigationId) as! UINavigationController
 
-        //let memeEditorController = storyboard!.instantiateViewController(withIdentifier: memeEditorId) as! MemeEditorVC
-        
         let memeEditorController = memeEditorNavigationController.topViewController as! MemeEditorVC
         
         memeEditorController.meme = meme

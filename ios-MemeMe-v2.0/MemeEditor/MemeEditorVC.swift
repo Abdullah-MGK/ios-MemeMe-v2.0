@@ -26,7 +26,7 @@ class MemeEditorVC: UIViewController, UIImagePickerControllerDelegate, UINavigat
     }
     
     var meme: Meme?
-    var delegate: MemeEditorDelegate!
+    var delegate: MemeEditorDelegate?
     
     // set defaultTextAttributes
     let memeTextAttributes: [NSAttributedString.Key: Any] = [
@@ -73,7 +73,9 @@ class MemeEditorVC: UIViewController, UIImagePickerControllerDelegate, UINavigat
         super.viewWillDisappear(animated)
         
         // update tableview when dismissing this viewcontroller
-        delegate.updateView()
+        if let delegate = delegate {
+            delegate.updateView()
+        }
         
         // unsubscribe from keyboard notification
         unsubscribeFromKeyboardNotification()
