@@ -14,7 +14,6 @@ class MemeTableVC: UITableViewController, MemeEditorDelegate {
     let memeDetailId = "MemeDetailVC"
     
     var memes: [Meme]! {
-        print("meme")
         return (UIApplication.shared.delegate as! AppDelegate).memes
     }
     
@@ -60,6 +59,47 @@ class MemeTableVC: UITableViewController, MemeEditorDelegate {
         
     }
     
+    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
+        let deleteAction = UIContextualAction(style: .destructive, title: "Delete", handler: { (deleteAction, view, completion) in
+            (UIApplication.shared.delegate as! AppDelegate).memes.remove(at: indexPath.row)
+            // self.updateView()
+        })
+        
+        let swipeActions = UISwipeActionsConfiguration(actions: [deleteAction])
+        
+        return swipeActions
+    }
+    
+    override func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
+        let shareAction = UIContextualAction(style: .normal, title: "Share", handler: { (shareAction, view, completion) in
+            
+            self.shareImage(image: self.memes[indexPath.row].memedImg)
+            
+            })
+        
+        let swipeActions = UISwipeActionsConfiguration(actions: [shareAction])
+        
+        return swipeActions
+        
+    }
+    
+    /*
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        
+        if editingStyle == .delete {
+            (UIApplication.shared.delegate as! AppDelegate).memes.remove(at: indexPath.row)
+            updateView()
+        }
+        
+    }
+    */
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         // assign self as delgate for MemeEditorVC in order to update the tableView when MemeEditorVC is dismissed
@@ -71,6 +111,13 @@ class MemeTableVC: UITableViewController, MemeEditorDelegate {
     
     func updateView() {
         tableView.reloadData()
+    }
+    
+    func shareImage(image: UIImage) {
+        
+        let controller = UIActivityViewController(activityItems: [image], applicationActivities: nil)
+        
+        present(controller, animated: true, completion: nil)
     }
     
     /*
