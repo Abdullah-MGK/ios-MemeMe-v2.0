@@ -21,6 +21,9 @@ extension MemeEditorVC {
         // decide source based on the button
         imagePicker.sourceType = sourceType
         
+        // allows cropping
+        imagePicker.allowsEditing = true
+        
         present(imagePicker, animated: true, completion: nil)
         
     }
@@ -28,11 +31,15 @@ extension MemeEditorVC {
     // the user picked an image
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
-        // sets the image view to the selected image
-        if let image = info[.originalImage] as? UIImage {
+        // sets the image view to the selected image dependeing on if the image is cropped (edited)
+        if let image = info[.editedImage] as? UIImage {
             memeImgView.image = image
-            dismiss(animated: true, completion: nil)
         }
+        else if let image = info[.originalImage] as? UIImage {
+            memeImgView.image = image
+        }
+        
+        dismiss(animated: true, completion: nil)
         
         shareBTN.isEnabled = true
         
