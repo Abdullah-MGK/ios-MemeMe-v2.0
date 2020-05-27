@@ -62,8 +62,11 @@ class MemeTableVC: UITableViewController, MemeEditorDelegate {
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         
         let deleteAction = UIContextualAction(style: .destructive, title: "Delete", handler: { (deleteAction, view, completion) in
+            
             (UIApplication.shared.delegate as! AppDelegate).memes.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
             // self.updateView()
+            
         })
         
         let swipeActions = UISwipeActionsConfiguration(actions: [deleteAction])
