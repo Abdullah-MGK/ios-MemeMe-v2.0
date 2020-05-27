@@ -263,7 +263,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="tBk-rG-fmC">
             <objects>
-                <tabBarController id="M2V-iA-9vY" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="TabbarController" id="M2V-iA-9vY" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="7Ec-bT-UMN">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
@@ -282,7 +282,7 @@
         <!--List-->
         <scene sceneID="3bl-Q6-dY5">
             <objects>
-                <navigationController id="xS7-xZ-bFr" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="TableNavigationController" id="xS7-xZ-bFr" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="List" selectedImage="list.bullet" catalog="system" id="8Rb-yo-1j6"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Sef-g1-MnC">
@@ -304,7 +304,7 @@
         <!--Grid-->
         <scene sceneID="iAI-pD-JLj">
             <objects>
-                <navigationController id="jf7-nP-sDg" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="CollectionNavigationController" id="jf7-nP-sDg" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Grid" selectedImage="square.grid.2x2.fill" catalog="system" id="CCp-z7-IT9"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="2FF-3d-h5P">
@@ -326,7 +326,7 @@
         <!--Navigation Controller-->
         <scene sceneID="k1x-ku-vtR">
             <objects>
-                <navigationController toolbarHidden="NO" id="RIq-SP-FD3" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="MemeEditorNavigationController" toolbarHidden="NO" id="RIq-SP-FD3" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Xnp-Og-9cU">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
@@ -352,6 +352,6 @@
         <image name="square.grid.2x2.fill" catalog="system" width="64" height="56"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="o3Y-Ft-3Ba"/>
+        <segue reference="ph9-u2-gsp"/>
     </inferredMetricsTieBreakers>
 </document>
