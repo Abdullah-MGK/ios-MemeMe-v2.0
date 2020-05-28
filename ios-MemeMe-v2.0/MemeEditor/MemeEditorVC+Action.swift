@@ -17,6 +17,7 @@ extension MemeEditorVC {
         controller.completionWithItemsHandler = {
             (activity, success, items, error) in if success {
                 self.save()
+                self.delegate?.updateView()
                 self.dismiss(animated: true, completion: nil)
             }
         }
