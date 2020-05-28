@@ -13,10 +13,11 @@ extension MemeEditorVC {
     @IBAction func shareTapped(_ sender: Any) {
         let memeImg = generateMemedImg()
         let controller = UIActivityViewController(activityItems: [memeImg], applicationActivities: nil)
-        
+                
         controller.completionWithItemsHandler = {
             (activity, success, items, error) in if success {
                 self.save()
+                self.dismiss(animated: true, completion: nil)
             }
         }
         

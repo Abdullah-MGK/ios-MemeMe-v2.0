@@ -96,7 +96,7 @@
                                 <action selector="shareTapped:" destination="hv4-jM-g6g" id="A43-ob-6Sp"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="stop" id="aMO-Oj-PFH">
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="aMO-Oj-PFH">
                             <connections>
                                 <action selector="cancelTapped:" destination="hv4-jM-g6g" id="q6R-BT-Raa"/>
                             </connections>
