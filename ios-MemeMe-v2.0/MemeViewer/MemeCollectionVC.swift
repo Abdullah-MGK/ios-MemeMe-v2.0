@@ -25,23 +25,31 @@ class MemeCollectionVC: UICollectionViewController, MemeEditorDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        // TODO: Style the collection
+        /*
+         @IBOutlet weak var memesCollectionViewFlowLayout: UICollectionViewFlowLayout!
+         // can be accessed via storyboard
+         let space: CGFloat = 3.0
+         let dimension: CGFloat = (view.frame.size.width - (2 * space)) / 3.0
+         let dimension2: CGFloat = ( view.frame.size.height - (2 * space) ) / 3.0
+         
+         // governs the space between items within a row or column (margin)
+         memesCollectionViewFlowLayout.minimumInteritemSpacing = space
+         
+         // governs the space between rows or columns (padding)
+         memesCollectionViewFlowLayout.minimumLineSpacing = space
+         
+         // governs cell size
+         memesCollectionViewFlowLayout.itemSize = CGSize(width: dimension, height: dimension2)
+         }
+         */
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
-
-        // Do any additional setup after loading the view.
+        
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+    
     // MARK: UICollectionViewDataSource
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -84,31 +92,3 @@ class MemeCollectionVC: UICollectionViewController, MemeEditorDelegate {
 
 }
 
-/*
- class MemesCollectionVC2: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
-     
-     @IBOutlet weak var memesCollectionViewFlowLayout: UICollectionViewFlowLayout!
-
-     override func viewDidLoad() {
-         super.viewDidLoad()
-         memesCollectionView.delegate = self
-         memesCollectionView.dataSource = self
-         
-         // can be accessed via storyboard
-         let space: CGFloat = 3.0
-         let dimension: CGFloat = (view.frame.size.width - (2 * space)) / 3.0
-         let dimension2: CGFloat = ( view.frame.size.height - (2 * space) ) / 3.0
-         
-         // governs the space between items within a row or column (margin)
-         memesCollectionViewFlowLayout.minimumInteritemSpacing = space
-         
-         // governs the space between rows or columns (padding)
-         memesCollectionViewFlowLayout.minimumLineSpacing = space
-         
-         // governs cell size
-         memesCollectionViewFlowLayout.itemSize = CGSize(width: dimension, height: dimension2)
-     }
-     
- }
-
- */

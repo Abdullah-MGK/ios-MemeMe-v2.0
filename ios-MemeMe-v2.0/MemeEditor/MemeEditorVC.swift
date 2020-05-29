@@ -83,8 +83,8 @@ class MemeEditorVC: UIViewController, UIImagePickerControllerDelegate, UINavigat
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
-        // update tableview when dismissing this viewcontroller
-        delegate?.updateView()
+        // TODO: update tableview when dismissing this viewcontroller
+        // delegate?.updateView()
         
         // unsubscribe from keyboard notification
         unsubscribeFromKeyboardNotification()
@@ -116,7 +116,7 @@ class MemeEditorVC: UIViewController, UIImagePickerControllerDelegate, UINavigat
     @IBAction func cancelTapped(_ sender: Any) {
         
         // define alert
-        let controller = UIAlertController(title: "Discard Changes", message: "Are you sure you want to discard your changes", preferredStyle: .actionSheet)
+        let controller = UIAlertController(title: "Reset", message: "Are you sure you want to discard your changes", preferredStyle: .actionSheet)
         
         // define discard action
         let discardAction = UIAlertAction(title: "Discard Changes", style: .destructive) { action in
@@ -126,7 +126,6 @@ class MemeEditorVC: UIViewController, UIImagePickerControllerDelegate, UINavigat
         
          // define cancel action
          let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertAction.Style.default) { action in
-            // self.dismiss(animated: true, completion: nil)
          }
         
         // add actions to the alert
@@ -158,6 +157,13 @@ class MemeEditorVC: UIViewController, UIImagePickerControllerDelegate, UINavigat
             bottomTF.text = ""
             shareBTN.isEnabled = false
         }
+    }
+    
+    func resetMemes() {
+        memeImgView.image = meme?.originalImg ?? nil
+        topTF.text = meme?.topTxt ?? ""
+        bottomTF.text = meme?.bottomTxt ?? ""
+        shareBTN.isEnabled = memeImgView.image != nil
     }
     
     // reset the field when it's clicked
