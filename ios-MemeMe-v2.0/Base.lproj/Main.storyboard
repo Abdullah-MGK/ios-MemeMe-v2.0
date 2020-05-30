@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="M2V-iA-9vY">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -12,23 +13,23 @@
             <objects>
                 <viewController storyboardIdentifier="MemeEditorVC" id="hv4-jM-g6g" customClass="MemeEditorVC" customModule="ios_MemeMe_v2_0" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cyz-In-4Ih">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fBz-co-9X5">
-                                <rect key="frame" x="282" y="275.5" width="36" height="36"/>
+                                <rect key="frame" x="0.0" y="200.5" width="414" height="414"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="fBz-co-9X5" secondAttribute="height" multiplier="1:1" id="rBV-zO-Y8M"/>
                                 </constraints>
                             </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Nlr-8M-y6w">
-                                <rect key="frame" x="284" y="295.5" width="32" height="34"/>
+                                <rect key="frame" x="20.5" y="220.5" width="373" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ngh-tb-vnT">
-                                <rect key="frame" x="284" y="257.5" width="32" height="34"/>
+                                <rect key="frame" x="20.5" y="560.5" width="373" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -119,11 +120,11 @@
             <objects>
                 <viewController storyboardIdentifier="MemeDetailVC" id="2OG-hw-Rou" customClass="MemeDetailVC" customModule="ios_MemeMe_v2_0" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ULk-vU-Ph0">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cmr-iF-WzA">
-                                <rect key="frame" x="0.0" y="146" width="375" height="375"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cmr-iF-WzA">
+                                <rect key="frame" x="0.0" y="246" width="414" height="414"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="cmr-iF-WzA" secondAttribute="height" multiplier="1:1" id="Ub2-1h-41n"/>
                                 </constraints>
@@ -179,28 +180,33 @@
             <objects>
                 <collectionViewController storyboardIdentifier="MemeCollectionVC" id="8sM-pZ-Alr" customClass="MemeCollectionVC" customModule="ios_MemeMe_v2_0" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="BrF-kO-gUQ">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="qJe-19-LDf">
-                            <size key="itemSize" width="50" height="50"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="qJe-19-LDf">
+                            <size key="itemSize" width="150" height="150"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MemeItem" id="ed0-JI-4Cc" customClass="MemeCollectionViewCell" customModule="ios_MemeMe_v2_0" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="8o7-dw-UcC">
-                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="x7x-LS-VNJ">
-                                            <rect key="frame" x="-95" y="-39" width="240" height="128"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="x7x-LS-VNJ">
+                                            <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
                                         </imageView>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="x7x-LS-VNJ" firstAttribute="width" secondItem="8o7-dw-UcC" secondAttribute="width" id="00S-jM-Eem"/>
+                                        <constraint firstItem="x7x-LS-VNJ" firstAttribute="height" secondItem="8o7-dw-UcC" secondAttribute="height" id="2Se-kG-YRD"/>
+                                        <constraint firstItem="x7x-LS-VNJ" firstAttribute="centerX" secondItem="8o7-dw-UcC" secondAttribute="centerX" id="P9t-QT-Tx0"/>
+                                        <constraint firstItem="x7x-LS-VNJ" firstAttribute="centerY" secondItem="8o7-dw-UcC" secondAttribute="centerY" id="Wv2-BQ-183"/>
+                                    </constraints>
                                 </collectionViewCellContentView>
                                 <connections>
                                     <outlet property="imageView" destination="x7x-LS-VNJ" id="U0I-XD-jZ4"/>
@@ -222,22 +228,22 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vuI-MT-crw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4874" y="1274"/>
+            <point key="canvasLocation" x="4873.913043478261" y="1273.6607142857142"/>
         </scene>
         <!--Sent Memes-->
         <scene sceneID="7M5-ek-FrA">
             <objects>
                 <tableViewController storyboardIdentifier="MemeTableVC" id="ccz-6m-88f" customClass="MemeTableVC" customModule="ios_MemeMe_v2_0" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="QUl-L3-a15">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MemeCell" id="b3y-x3-aNf">
-                                <rect key="frame" x="0.0" y="28" width="600" height="43.5"/>
+                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="b3y-x3-aNf" id="R3w-ao-QKv">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -285,12 +291,11 @@
                     <tabBarItem key="tabBarItem" title="List" selectedImage="list.bullet" catalog="system" id="8Rb-yo-1j6"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Sef-g1-MnC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="DdK-S9-3fK">
-                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </toolbar>
                     <connections>
@@ -308,12 +313,11 @@
                     <tabBarItem key="tabBarItem" title="Grid" selectedImage="square.grid.2x2.fill" catalog="system" id="CCp-z7-IT9"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="2FF-3d-h5P">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Lp8-Gt-i8l">
-                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </toolbar>
                     <connections>
@@ -330,12 +334,12 @@
                 <navigationController storyboardIdentifier="MemeEditorNavigationController" toolbarHidden="NO" id="RIq-SP-FD3" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Xnp-Og-9cU">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="vjX-p3-Bjd">
-                        <rect key="frame" x="0.0" y="603" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="759" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </toolbar>
                     <connections>
@@ -353,6 +357,6 @@
         <image name="square.grid.2x2.fill" catalog="system" width="64" height="56"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ph9-u2-gsp"/>
+        <segue reference="o3Y-Ft-3Ba"/>
     </inferredMetricsTieBreakers>
 </document>
