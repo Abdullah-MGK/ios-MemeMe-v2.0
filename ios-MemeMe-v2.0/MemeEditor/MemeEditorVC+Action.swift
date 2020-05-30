@@ -11,24 +11,52 @@ import UIKit
 extension MemeEditorVC {
     
     @IBAction func shareTapped(_ sender: Any) {
+        
+        if topTF.text == "" || bottomTF.text == "" {
+            
+            // define alert
+            let controller = UIAlertController(title: "No Text", message: "Are you sure you want to share without having text written?", preferredStyle: .actionSheet)
+            
+            // define discard action
+            let shareAction = UIAlertAction(title: "Share Anyway", style: .destructive) { action in
+                self.share()
+            }
+            
+            // define cancel action
+            let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertAction.Style.default) { action in
+            }
+            
+            // add actions to the alert
+            controller.addAction(cancelAction)
+            controller.addAction(shareAction)
+            
+            // present alert
+            present(controller, animated: true, completion: nil)
+            
+        } else {
+            share()
+        }
+    }
+    
+    func share() {
         let memeImg = generateMemedImg()
         let controller = UIActivityViewController(activityItems: [memeImg], applicationActivities: nil)
                 
         controller.completionWithItemsHandler = {
             (activity, success, items, error) in if success {
-                self.save()
+                self.save(memeImg)
+                
+                // Update tableview when dismissing this viewcontroller after share
                 self.delegate?.updateView()
                 self.dismiss(animated: true, completion: nil)
+                
             }
         }
         
         present(controller, animated: true, completion: nil)
     }
     
-    func save() {
-        
-        // generate the memed image
-        let memedImg = generateMemedImg()
+    func save(_ memedImg: UIImage) {
         
         // Create the meme
         let meme = Meme(topTxt: topTF.text!, bottomTxt: bottomTF.text!, originalImg: memeImgView.image!, memedImg: memedImg)

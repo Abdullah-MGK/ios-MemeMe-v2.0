@@ -83,7 +83,6 @@ class MemeEditorVC: UIViewController, UIImagePickerControllerDelegate, UINavigat
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
-        // TODO: update tableview when dismissing this viewcontroller
         // delegate?.updateView()
         
         // unsubscribe from keyboard notification
@@ -113,7 +112,7 @@ class MemeEditorVC: UIViewController, UIImagePickerControllerDelegate, UINavigat
         
     }
     
-    @IBAction func cancelTapped(_ sender: Any) {
+    @IBAction func resetTapped(_ sender: Any) {
         
         // define alert
         let controller = UIAlertController(title: "Reset", message: "Are you sure you want to discard your changes", preferredStyle: .actionSheet)
