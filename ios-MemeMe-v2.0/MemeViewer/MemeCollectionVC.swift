@@ -55,7 +55,6 @@ class MemeCollectionVC: UICollectionViewController, MemeEditorDelegate, UICollec
         
         // Preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
-        
     }
     
     override func viewDidLoad() {
@@ -63,7 +62,6 @@ class MemeCollectionVC: UICollectionViewController, MemeEditorDelegate, UICollec
         
         // Preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
-        
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -88,7 +86,6 @@ class MemeCollectionVC: UICollectionViewController, MemeEditorDelegate, UICollec
         detailController.meme = memes[indexPath.row]
         
         navigationController?.pushViewController(detailController, animated: true)
-        
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
@@ -110,6 +107,7 @@ class MemeCollectionVC: UICollectionViewController, MemeEditorDelegate, UICollec
             // [(screen width) - (2 spaces in between)] / [3 image columns]
             dimension = (viewArea.size.width - (2 * spacing)) / 3.0
         } else {
+            // [(screen width) - (4 spaces in between)] / [5 image columns]
             dimension = (viewArea.size.width - (4 * spacing)) / 5.0
         }
         
@@ -119,10 +117,6 @@ class MemeCollectionVC: UICollectionViewController, MemeEditorDelegate, UICollec
     override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
         collectionViewLayout.invalidateLayout()
     }
-    
-    
-    
-    
     
     /*
     override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
@@ -219,11 +213,7 @@ class MemeCollectionVC: UICollectionViewController, MemeEditorDelegate, UICollec
      
      }
      */
-    
-    
-    
-    
-    
+
     // MARK: UICollectionViewDataSource
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -232,7 +222,6 @@ class MemeCollectionVC: UICollectionViewController, MemeEditorDelegate, UICollec
         let memeEditorController = (segue.destination as! UINavigationController).topViewController as! MemeEditorVC
         
         memeEditorController.delegate = self
-        
     }
     
     func updateView() {

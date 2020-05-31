@@ -60,7 +60,6 @@ extension MemeEditorVC {
         let keyboardFrame = keyboardSize.cgRectValue.height
         
         return keyboardFrame
-        
     }
     
 }

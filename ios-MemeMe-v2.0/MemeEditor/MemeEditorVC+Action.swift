@@ -49,7 +49,6 @@ extension MemeEditorVC {
                 // Update tableview when dismissing this viewcontroller after share
                 self.delegate?.updateView()
                 self.dismiss(animated: true, completion: nil)
-                
             }
         }
         
@@ -63,7 +62,6 @@ extension MemeEditorVC {
         
         // Add the meme to the memes list
         (UIApplication.shared.delegate as! AppDelegate).memes.append(meme)
-        
     }
     
     func generateMemedImg() -> UIImage {
@@ -101,7 +99,6 @@ extension MemeEditorVC {
         // toggleBars(hidden: false)
         
         return memedImage
-        
     }
     
     // func toggleBars(hidden: Bool) { }

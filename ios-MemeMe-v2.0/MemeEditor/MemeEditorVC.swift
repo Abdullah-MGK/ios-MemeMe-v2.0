@@ -57,7 +57,6 @@ class MemeEditorVC: UIViewController, UIImagePickerControllerDelegate, UINavigat
         // navigationController?.toolbar.isHidden = false
         // and in previous controller add this
         // hidesBottomBarWhenPushed
-        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -87,7 +86,6 @@ class MemeEditorVC: UIViewController, UIImagePickerControllerDelegate, UINavigat
         case .camera : setImgPicker(.camera)
         case .album : setImgPicker(.photoLibrary)
         }
-        
     }
     
     @IBAction func resetTapped(_ sender: Any) {
@@ -111,10 +109,10 @@ class MemeEditorVC: UIViewController, UIImagePickerControllerDelegate, UINavigat
         
         // present alert
         present(controller, animated: true, completion: nil)
-        
     }
         
     func resetMeme() {
+        
         if let meme = meme {
             memeImgView.image = meme.originalImg
             topTF.text = meme.topTxt

@@ -25,7 +25,6 @@ extension MemeEditorVC {
         imagePicker.allowsEditing = true
         
         present(imagePicker, animated: true, completion: nil)
-        
     }
     
     // the user picked an image
@@ -42,7 +41,6 @@ extension MemeEditorVC {
         shareBTN.isEnabled = true
         
         dismiss(animated: true, completion: nil)
-        
     }
     
     // the user has cancelled

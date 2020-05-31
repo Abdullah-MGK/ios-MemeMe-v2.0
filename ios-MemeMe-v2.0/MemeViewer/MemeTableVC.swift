@@ -14,6 +14,7 @@ class MemeTableVC: UITableViewController, MemeEditorDelegate {
     let memeDetailId = "MemeDetailVC"
     
     let rowHeight: CGFloat = 100.0
+    let spacing: CGFloat = 15.0
     
     var memes: [Meme]! {
         return (UIApplication.shared.delegate as! AppDelegate).memes
@@ -33,10 +34,28 @@ class MemeTableVC: UITableViewController, MemeEditorDelegate {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
+    
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        
+        return memes.count
+    }
         
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
-        return memes.count
+        return 1
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        
+        return spacing
+    }
+    
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
+        let view = UIView()
+        view.backgroundColor = .clear
+        
+        return view
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -60,10 +79,10 @@ class MemeTableVC: UITableViewController, MemeEditorDelegate {
         detailController.meme = memes[indexPath.row]
         
         navigationController?.pushViewController(detailController, animated: true)
-        
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
         return rowHeight
     }
     
@@ -93,7 +112,6 @@ class MemeTableVC: UITableViewController, MemeEditorDelegate {
         let swipeActions = UISwipeActionsConfiguration(actions: [shareAction])
         
         return swipeActions
-        
     }
     
     /*
@@ -117,7 +135,6 @@ class MemeTableVC: UITableViewController, MemeEditorDelegate {
         let memeEditorController = (segue.destination as! UINavigationController).topViewController as! MemeEditorVC
         
         memeEditorController.delegate = self
-        
     }
     
     func updateView() {
