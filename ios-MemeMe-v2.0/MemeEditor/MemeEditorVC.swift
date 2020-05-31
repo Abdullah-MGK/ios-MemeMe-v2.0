@@ -47,7 +47,6 @@ class MemeEditorVC: UIViewController, UIImagePickerControllerDelegate, UINavigat
         setTextFieldStyle(textField: topTF, placeHolder: "TOP")
         setTextFieldStyle(textField: bottomTF, placeHolder: "BOTTOM")
         
-        // TODO: Fix That Here & at Will Appear
         // set meme default details for text & image & share button
         resetMeme()
         
@@ -114,22 +113,21 @@ class MemeEditorVC: UIViewController, UIImagePickerControllerDelegate, UINavigat
         present(controller, animated: true, completion: nil)
         
     }
-    
-    // TODO: fix reset
-    
+        
     func resetMeme() {
         if let meme = meme {
             memeImgView.image = meme.originalImg
             topTF.text = meme.topTxt
             bottomTF.text = meme.bottomTxt
-            shareBTN.isEnabled = meme.originalImg != memeImgView.image && meme.topTxt != topTF.text && meme.bottomTxt != bottomTF.text
+            //shareBTN.isEnabled = meme.originalImg != memeImgView.image && meme.topTxt != topTF.text && meme.bottomTxt != bottomTF.text
         }
         else {
             memeImgView.image = nil
             topTF.text = ""
             bottomTF.text = ""
-            shareBTN.isEnabled = memeImgView.image != nil && topTF.text != nil && bottomTF.text != nil
+            //shareBTN.isEnabled = memeImgView.image != nil && topTF.text != nil && bottomTF.text != nil
         }
+        shareBTN.isEnabled = false
     }
     
     /*
