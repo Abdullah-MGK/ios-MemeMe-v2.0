@@ -18,7 +18,7 @@ class MemeCollectionVC: UICollectionViewController, MemeEditorDelegate, UICollec
     
     let memeItemId = "MemeItem"
     let memeDetailId = "MemeDetailVC"
-    let space: CGFloat = 5.0
+    let spacing: CGFloat = 5.0
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -92,11 +92,11 @@ class MemeCollectionVC: UICollectionViewController, MemeEditorDelegate, UICollec
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return space
+        return spacing
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return space
+        return spacing
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -108,9 +108,9 @@ class MemeCollectionVC: UICollectionViewController, MemeEditorDelegate, UICollec
         
         if interfaceOrientation!.isPortrait {
             // [(screen width) - (2 spaces in between)] / [3 image columns]
-            dimension = (viewArea.size.width - (2 * space)) / 3.0
+            dimension = (viewArea.size.width - (2 * spacing)) / 3.0
         } else {
-            dimension = (viewArea.size.width - (4 * space)) / 5.0
+            dimension = (viewArea.size.width - (4 * spacing)) / 5.0
         }
         
         return CGSize(width: dimension, height: dimension)

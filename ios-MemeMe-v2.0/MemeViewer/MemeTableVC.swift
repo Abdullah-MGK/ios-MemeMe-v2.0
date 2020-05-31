@@ -13,6 +13,8 @@ class MemeTableVC: UITableViewController, MemeEditorDelegate {
     let memeCellId = "MemeCell"
     let memeDetailId = "MemeDetailVC"
     
+    let rowHeight: CGFloat = 100.0
+    
     var memes: [Meme]! {
         return (UIApplication.shared.delegate as! AppDelegate).memes
     }
@@ -42,7 +44,9 @@ class MemeTableVC: UITableViewController, MemeEditorDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: memeCellId, for: indexPath)
         
         let meme = memes[indexPath.row]
-        cell.textLabel?.text = "\(meme.topTxt), \(meme.bottomTxt)"
+        
+        cell.textLabel?.numberOfLines = 2
+        cell.textLabel?.text = "\(meme.topTxt)\n\(meme.bottomTxt)"
         // cell.detailTextLabel?.text = meme.bottomTxt
         cell.imageView?.image = meme.memedImg
         
@@ -57,6 +61,10 @@ class MemeTableVC: UITableViewController, MemeEditorDelegate {
         
         navigationController?.pushViewController(detailController, animated: true)
         
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return rowHeight
     }
     
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
