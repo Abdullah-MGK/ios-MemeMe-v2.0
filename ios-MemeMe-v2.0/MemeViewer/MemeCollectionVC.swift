@@ -55,6 +55,7 @@ class MemeCollectionVC: UICollectionViewController, MemeEditorDelegate, UICollec
         
         // Preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
+        
     }
     
     override func viewDidLoad() {
@@ -102,13 +103,14 @@ class MemeCollectionVC: UICollectionViewController, MemeEditorDelegate, UICollec
         
         let interfaceOrientation = UIApplication.shared.windows.first?.windowScene?.interfaceOrientation
         
+        let viewArea = view.safeAreaLayoutGuide.layoutFrame
         let dimension: CGFloat!
         
         if interfaceOrientation!.isPortrait {
             // [(screen width) - (2 spaces in between)] / [3 image columns]
-            dimension = (view.frame.size.width - (2 * space)) / 3.0
+            dimension = (viewArea.size.width - (2 * space)) / 3.0
         } else {
-            dimension = (view.frame.size.width - (1 * space)) / 2.0
+            dimension = (viewArea.size.width - (4 * space)) / 5.0
         }
         
         return CGSize(width: dimension, height: dimension)
@@ -122,10 +124,6 @@ class MemeCollectionVC: UICollectionViewController, MemeEditorDelegate, UICollec
     
     
     
-    
-    
-
-    // TODO: choose one of those for rotating device
     /*
     override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
         
@@ -221,8 +219,6 @@ class MemeCollectionVC: UICollectionViewController, MemeEditorDelegate, UICollec
      
      }
      */
-    
-    
     
     
     
