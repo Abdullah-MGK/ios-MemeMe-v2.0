@@ -39,9 +39,9 @@ extension MemeEditorVC {
             memeImgView.image = image
         }
         
-        dismiss(animated: true, completion: nil)
-        
         shareBTN.isEnabled = true
+        
+        dismiss(animated: true, completion: nil)
         
     }
     

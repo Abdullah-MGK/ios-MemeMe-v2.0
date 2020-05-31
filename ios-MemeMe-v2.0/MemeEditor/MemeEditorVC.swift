@@ -36,40 +36,21 @@ class MemeEditorVC: UIViewController, UIImagePickerControllerDelegate, UINavigat
         // negative so that it makes stroke and fill
         .strokeWidth: -3
     ]
-        
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // TODO: Fix That Here & at Will Appear
+        // viewWillAppear() or viewDidAppear(), in viewWillAppear() every time the screen appears, the button is disabled, but in viewDidLoad() it will be disabled at the first time
+        pickFromCamBTN.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
         
-        // set text fields
+        // set text fields style
         setTextFieldStyle(textField: topTF, placeHolder: "TOP")
         setTextFieldStyle(textField: bottomTF, placeHolder: "BOTTOM")
         
-        // set meme details
-        // resetMeme()
+        // TODO: Fix That Here & at Will Appear
+        // set meme default details for text & image & share button
+        resetMeme()
         
-        
-        
-        
-        if let meme = meme {
-            memeImgView.image = meme.originalImg
-            topTF.text = meme.topTxt
-            bottomTF.text = meme.bottomTxt
-        }
-        
-        // set meme details
-        // resetMeme()
-        
-        // if in viewWillAppear() or viewDidAppear(), every time the screen appears, the button is disabled, but if in viewDidLoad() it will  be disabled at the first time
-        pickFromCamBTN.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
-        
-        shareBTN.isEnabled = memeImgView.image != nil
         subscribeToKeyboardNotification()
         
         // hide Tabbar when using same navigation controller with push
@@ -83,6 +64,7 @@ class MemeEditorVC: UIViewController, UIImagePickerControllerDelegate, UINavigat
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
+        // TODO: willDisappear
         // delegate?.updateView()
         
         // unsubscribe from keyboard notification
@@ -92,9 +74,6 @@ class MemeEditorVC: UIViewController, UIImagePickerControllerDelegate, UINavigat
     func setTextFieldStyle(textField: UITextField, placeHolder: String) {
         textField.defaultTextAttributes = memeTextAttributes
         textField.attributedPlaceholder = NSAttributedString(string: placeHolder, attributes: memeTextAttributes)
-        // intitially created with empty text
-        textField.text = ""
-        
         textField.autocapitalizationType = .allCharacters
         textField.textAlignment = .center
         textField.borderStyle = .none
@@ -123,9 +102,9 @@ class MemeEditorVC: UIViewController, UIImagePickerControllerDelegate, UINavigat
             // self.dismiss(animated: true, completion: nil)
         }
         
-         // define cancel action
-         let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertAction.Style.default) { action in
-         }
+        // define cancel action
+        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertAction.Style.default) { action in
+        }
         
         // add actions to the alert
         controller.addAction(discardAction)
@@ -137,33 +116,39 @@ class MemeEditorVC: UIViewController, UIImagePickerControllerDelegate, UINavigat
     }
     
     // TODO: fix reset
-    func reset() {
-        memeImgView.image = nil
-        setTextFieldStyle(textField: topTF, placeHolder: "TOP")
-        setTextFieldStyle(textField: bottomTF, placeHolder: "BOTTOM")
-        shareBTN.isEnabled = false
-    }
     
     func resetMeme() {
         if let meme = meme {
             memeImgView.image = meme.originalImg
             topTF.text = meme.topTxt
             bottomTF.text = meme.bottomTxt
+            shareBTN.isEnabled = meme.originalImg != memeImgView.image && meme.topTxt != topTF.text && meme.bottomTxt != bottomTF.text
         }
         else {
             memeImgView.image = nil
             topTF.text = ""
             bottomTF.text = ""
-            shareBTN.isEnabled = false
+            shareBTN.isEnabled = memeImgView.image != nil && topTF.text != nil && bottomTF.text != nil
         }
     }
     
-    func resetMemes() {
-        memeImgView.image = meme?.originalImg ?? nil
-        topTF.text = meme?.topTxt ?? ""
-        bottomTF.text = meme?.bottomTxt ?? ""
-        shareBTN.isEnabled = memeImgView.image != nil
-    }
+    /*
+     func resetMeme2() {
+     memeImgView.image = meme?.originalImg ?? nil
+     topTF.text = meme?.topTxt ?? ""
+     bottomTF.text = meme?.bottomTxt ?? ""
+     shareBTN.isEnabled = memeImgView.image != nil
+     }
+     */
+    
+    /*
+     func reset() {
+     memeImgView.image = nil
+     //        setTextFieldStyle(textField: topTF, placeHolder: "TOP")
+     //        setTextFieldStyle(textField: bottomTF, placeHolder: "BOTTOM")
+     shareBTN.isEnabled = false
+     }
+     */
     
     // reset the field when it's clicked
     func textFieldDidBeginEditing(_ textField: UITextField) {
@@ -175,4 +160,8 @@ class MemeEditorVC: UIViewController, UIImagePickerControllerDelegate, UINavigat
         return textField.resignFirstResponder() // returns true
     }
     
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        shareBTN.isEnabled = memeImgView.image != nil
+    }
+
 }
