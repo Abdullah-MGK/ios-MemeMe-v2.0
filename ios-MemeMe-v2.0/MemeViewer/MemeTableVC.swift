@@ -51,32 +51,50 @@ class MemeTableVC: UITableViewController, MemeEditorDelegate {
         return 1
     }
     
-    // TODO choose one
-//    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-//
-//        return spacing
-//    }
+    // TODO: choose one
     
-//    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-//
-//        let view = UIView()
-//        view.backgroundColor = .clear
-//
-//        return view
-//    }
+    //    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    //
+    //        return spacing
+    /*
+     //       return 1
+     */
+    //    }
     
-//    override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-//        return 1
-//    }
+    //    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+    //
+    //        let view = UIView()
+    //        view.backgroundColor = .clear
+    //         return view
+    /*
+     //        let v = UIView(frame: CGRect(x: 0, y:0, width: tableView.frame.width, height: 1))
+     //        v.backgroundColor = .darkGray
+     //        return v
+     */
+    //    }
     
-//    override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-//        let v = UIView(frame: CGRect(x: 0, y:0, width: tableView.frame.width, height: 1))
-//        v.backgroundColor = .darkGray
-//        return v
-//    }
+    //    override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+    //
+    //        return 1
+    /*
+     //       return spacing
+     */
+    //    }
+    
+    //    override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+    //
+    //        let v = UIView(frame: CGRect(x: 0, y:0, width: tableView.frame.width, height: 1))
+    //        v.backgroundColor = .darkGray
+    //         return v
+    /*
+     //        let view = UIView()
+     //        view.backgroundColor = .clear
+     //         return view
+     */
+    //    }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: memeCellId, for: indexPath)
         
         let meme = memes[indexPath.row]
@@ -124,7 +142,7 @@ class MemeTableVC: UITableViewController, MemeEditorDelegate {
             
             self.shareImage(image: self.memes[indexPath.row].memedImg)
             
-            })
+        })
         
         let swipeActions = UISwipeActionsConfiguration(actions: [shareAction])
         
@@ -132,19 +150,19 @@ class MemeTableVC: UITableViewController, MemeEditorDelegate {
     }
     
     /*
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        
-        if editingStyle == .delete {
-            (UIApplication.shared.delegate as! AppDelegate).memes.remove(at: indexPath.row)
-            updateView()
-        }
-        
-    }
-    */
+     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+     return true
+     }
+     
+     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+     
+     if editingStyle == .delete {
+     (UIApplication.shared.delegate as! AppDelegate).memes.remove(at: indexPath.row)
+     updateView()
+     }
+     
+     }
+     */
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
