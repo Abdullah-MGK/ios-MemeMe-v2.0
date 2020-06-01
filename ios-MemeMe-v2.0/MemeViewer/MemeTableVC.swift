@@ -28,6 +28,12 @@ class MemeTableVC: UITableViewController, MemeEditorDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // to make table separators edge-2-edge
+        tableView.separatorInset = UIEdgeInsets.zero
+        
+        // to hide / remove extra table rows
+        tableView.tableFooterView = UIView()
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
         
@@ -45,18 +51,29 @@ class MemeTableVC: UITableViewController, MemeEditorDelegate {
         return 1
     }
     
-    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        
-        return spacing
-    }
+    // TODO choose one
+//    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+//
+//        return spacing
+//    }
     
-    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        
-        let view = UIView()
-        view.backgroundColor = .clear
-        
-        return view
-    }
+//    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+//
+//        let view = UIView()
+//        view.backgroundColor = .clear
+//
+//        return view
+//    }
+    
+//    override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+//        return 1
+//    }
+    
+//    override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+//        let v = UIView(frame: CGRect(x: 0, y:0, width: tableView.frame.width, height: 1))
+//        v.backgroundColor = .darkGray
+//        return v
+//    }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
