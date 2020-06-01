@@ -47,31 +47,35 @@ class MemeTableVC: UITableViewController, MemeEditorDelegate {
     }
         
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-
+        
         return 1
     }
     
-    // TODO: choose one
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        
+        return spacing
+    }
     
-    //    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-    //
-    //        return spacing
-    /*
-     //       return 1
-     */
-    //    }
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
+        let view = UIView()
+        view.backgroundColor = .clear
+        
+        return view
+    }
     
-    //    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-    //
-    //        let view = UIView()
-    //        view.backgroundColor = .clear
-    //         return view
-    /*
-     //        let v = UIView(frame: CGRect(x: 0, y:0, width: tableView.frame.width, height: 1))
-     //        v.backgroundColor = .darkGray
-     //        return v
-     */
-    //    }
+    override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        
+        return 1
+    }
+    
+    override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        
+        let view = UIView()
+        view.backgroundColor = .clear
+        
+        return view
+    }
     
     //    override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
     //
