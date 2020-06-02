@@ -66,10 +66,8 @@ extension MemeEditorVC {
     
     func generateMemedImg() -> UIImage {
         
-        let textFieldIsEmpty = topTF.text == "" || bottomTF.text == ""
-        if textFieldIsEmpty {
-            toggleTextPlaceholder(hidden: true)
-        }
+        topTF.text == "" ? topTF.placeholder = "" : nil
+        bottomTF.text == "" ? bottomTF.placeholder = "" : nil
         
         // Hide toolbar and navbar
         // toggleBars(hidden: true)
@@ -103,22 +101,10 @@ extension MemeEditorVC {
         // Show toolbar and navbar
         // toggleBars(hidden: false)
         
-        if textFieldIsEmpty {
-            toggleTextPlaceholder(hidden: false)
-        }
+        topTF.text == "" ? topTF.placeholder = "TOP" : nil
+        bottomTF.text == "" ? bottomTF.placeholder = "BOTTOM" : nil
         
         return memedImage
-    }
-    
-    func toggleTextPlaceholder(hidden: Bool) {
-        if hidden {
-            topTF.placeholder = ""
-            bottomTF.placeholder = ""
-        }
-        else {
-            topTF.placeholder = "TOP"
-            bottomTF.placeholder = "BOTTOM"
-        }
     }
     
     // func toggleBars(hidden: Bool) { }
