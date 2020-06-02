@@ -23,6 +23,8 @@ class MemeCollectionVC: UICollectionViewController, MemeEditorDelegate, UICollec
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        updateView()
+        
         // Done in Delegate
         /*
         let interfaceOrientation = UIApplication.shared.windows.first?.windowScene?.interfaceOrientation
@@ -50,9 +52,7 @@ class MemeCollectionVC: UICollectionViewController, MemeEditorDelegate, UICollec
         // governs cell size
         flowLayout.itemSize = CGSize(width: dimension, height: dimension)
         */
-        
-        updateView()
-        
+                
         // Preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
     }

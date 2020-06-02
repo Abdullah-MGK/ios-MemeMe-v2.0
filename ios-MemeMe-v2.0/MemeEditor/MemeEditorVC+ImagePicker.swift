@@ -8,7 +8,16 @@
 
 import UIKit
 
-extension MemeEditorVC {
+extension MemeEditorVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    @IBAction func pickImgTapped(_ sender: UIBarButtonItem) {
+        
+        // present image picker based on the button clicked
+        switch(ButtonType(rawValue: sender.tag)!) {
+        case .camera : setImgPicker(.camera)
+        case .album : setImgPicker(.photoLibrary)
+        }
+    }
     
     func setImgPicker(_ sourceType: UIImagePickerController.SourceType) {
         

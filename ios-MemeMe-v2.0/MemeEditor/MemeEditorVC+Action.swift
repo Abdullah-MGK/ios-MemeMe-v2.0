@@ -46,7 +46,7 @@ extension MemeEditorVC {
             (activity, success, items, error) in if success {
                 self.save(memeImg)
                 
-                // Update tableview when dismissing this viewcontroller after share
+                // Update views when dismissing this viewcontroller after share
                 self.delegate?.updateView()
                 self.dismiss(animated: true, completion: nil)
             }

@@ -12,7 +12,7 @@ protocol MemeEditorDelegate {
     func updateView()
 }
 
-class MemeEditorVC: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
+class MemeEditorVC: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var memeImgView: UIImageView!
     @IBOutlet weak var topTF: UITextField!
@@ -62,9 +62,6 @@ class MemeEditorVC: UIViewController, UIImagePickerControllerDelegate, UINavigat
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
-        // TODO: willDisappear
-        // delegate?.updateView()
-        
         // unsubscribe from keyboard notification
         unsubscribeFromKeyboardNotification()
     }
@@ -79,15 +76,6 @@ class MemeEditorVC: UIViewController, UIImagePickerControllerDelegate, UINavigat
         textField.delegate = self
     }
     
-    @IBAction func pickImgTapped(_ sender: UIBarButtonItem) {
-        
-        // present image picker based on the button clicked
-        switch(ButtonType(rawValue: sender.tag)!) {
-        case .camera : setImgPicker(.camera)
-        case .album : setImgPicker(.photoLibrary)
-        }
-    }
-    
     @IBAction func resetTapped(_ sender: Any) {
         
         // define alert
@@ -99,6 +87,11 @@ class MemeEditorVC: UIViewController, UIImagePickerControllerDelegate, UINavigat
             // self.dismiss(animated: true, completion: nil)
         }
         
+        // define leave action
+        let leaveAction = UIAlertAction(title: "Discard & Leave", style: .cancel) { action in
+            self.dismiss(animated: true, completion: nil)
+        }
+        
         // define cancel action
         let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertAction.Style.default) { action in
         }
@@ -106,11 +99,20 @@ class MemeEditorVC: UIViewController, UIImagePickerControllerDelegate, UINavigat
         // add actions to the alert
         controller.addAction(discardAction)
         controller.addAction(cancelAction)
+        controller.addAction(leaveAction)
         
         // present alert
         present(controller, animated: true, completion: nil)
     }
-        
+    
+    func resetMeme() {
+        memeImgView.image = meme?.originalImg ?? nil
+        topTF.text = meme?.topTxt ?? ""
+        bottomTF.text = meme?.bottomTxt ?? ""
+        shareBTN.isEnabled = false
+    }
+    
+    /*
     func resetMeme() {
         
         if let meme = meme {
@@ -127,15 +129,7 @@ class MemeEditorVC: UIViewController, UIImagePickerControllerDelegate, UINavigat
         }
         shareBTN.isEnabled = false
     }
-    
-    /*
-     func resetMeme2() {
-     memeImgView.image = meme?.originalImg ?? nil
-     topTF.text = meme?.topTxt ?? ""
-     bottomTF.text = meme?.bottomTxt ?? ""
-     shareBTN.isEnabled = memeImgView.image != nil
-     }
-     */
+ */
     
     /*
      func reset() {
