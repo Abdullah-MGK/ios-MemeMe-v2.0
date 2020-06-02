@@ -15,6 +15,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        for i in 1...6 {
+        memes.append(Meme(topTxt: "hi", bottomTxt: "bye", originalImg: UIImage(named: "Echo")!, memedImg: UIImage(named: "Echo")!))
+        }
+        
         return true
     }
 

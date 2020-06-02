@@ -101,7 +101,7 @@ class MemeTableVC: UITableViewController, MemeEditorDelegate {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: memeCellId, for: indexPath)
         
-        let meme = memes[indexPath.row]
+        let meme = memes[indexPath.section]
         
         cell.textLabel?.numberOfLines = 2
         cell.textLabel?.text = "\(meme.topTxt)\n\(meme.bottomTxt)"
@@ -115,7 +115,7 @@ class MemeTableVC: UITableViewController, MemeEditorDelegate {
         
         let detailController = storyboard!.instantiateViewController(withIdentifier: memeDetailId) as! MemeDetailVC
         
-        detailController.meme = memes[indexPath.row]
+        detailController.meme = memes[indexPath.section]
         
         navigationController?.pushViewController(detailController, animated: true)
     }
@@ -129,8 +129,8 @@ class MemeTableVC: UITableViewController, MemeEditorDelegate {
         
         let deleteAction = UIContextualAction(style: .destructive, title: "Delete", handler: { (deleteAction, view, completion) in
             
-            (UIApplication.shared.delegate as! AppDelegate).memes.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .automatic)
+            (UIApplication.shared.delegate as! AppDelegate).memes.remove(at: indexPath.section)
+            tableView.deleteSections([indexPath.section], with: .automatic)
             // self.updateView()
             
         })
@@ -143,8 +143,12 @@ class MemeTableVC: UITableViewController, MemeEditorDelegate {
     override func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         
         let shareAction = UIContextualAction(style: .normal, title: "Share", handler: { (shareAction, view, completion) in
+                        
+            let image = self.memes[indexPath.section].memedImg
             
-            self.shareImage(image: self.memes[indexPath.row].memedImg)
+            let controller = UIActivityViewController(activityItems: [image], applicationActivities: nil)
+            
+            self.present(controller, animated: true, completion: nil)
             
         })
         
@@ -178,13 +182,6 @@ class MemeTableVC: UITableViewController, MemeEditorDelegate {
     
     func updateView() {
         tableView.reloadData()
-    }
-    
-    func shareImage(image: UIImage) {
-        
-        let controller = UIActivityViewController(activityItems: [image], applicationActivities: nil)
-        
-        present(controller, animated: true, completion: nil)
     }
     
 }
