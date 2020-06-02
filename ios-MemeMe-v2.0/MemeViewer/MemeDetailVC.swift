@@ -8,8 +8,8 @@
 
 import UIKit
 
-class MemeDetailVC: UIViewController {
-
+class MemeDetailVC: UIViewController, MemeEditorDelegate {
+    
     let memeEditorId = "MemeEditorVC"
     let memeEditorNavigationId = "MemeEditorNavigationController"
     
@@ -36,8 +36,13 @@ class MemeDetailVC: UIViewController {
         let memeEditorController = memeEditorNavigationController.topViewController as! MemeEditorVC
         
         memeEditorController.meme = meme
+        memeEditorController.delegate = self
         
         present(memeEditorNavigationController, animated: true, completion: nil)
+    }
+    
+    func updateView() {
+        navigationController?.popToRootViewController(animated: true)
     }
 
 }

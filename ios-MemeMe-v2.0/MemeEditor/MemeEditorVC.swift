@@ -84,7 +84,6 @@ class MemeEditorVC: UIViewController, UITextFieldDelegate {
         // define discard action
         let discardAction = UIAlertAction(title: "Discard Changes", style: .destructive) { action in
             self.resetMeme()
-            // self.dismiss(animated: true, completion: nil)
         }
         
         // define leave action
@@ -130,15 +129,6 @@ class MemeEditorVC: UIViewController, UITextFieldDelegate {
         shareBTN.isEnabled = false
     }
  */
-    
-    /*
-     func reset() {
-     memeImgView.image = nil
-     //        setTextFieldStyle(textField: topTF, placeHolder: "TOP")
-     //        setTextFieldStyle(textField: bottomTF, placeHolder: "BOTTOM")
-     shareBTN.isEnabled = false
-     }
-     */
     
     // reset the field when it's clicked
     func textFieldDidBeginEditing(_ textField: UITextField) {
