@@ -76,10 +76,10 @@ class MemeEditorVC: UIViewController, UITextFieldDelegate {
         textField.delegate = self
     }
     
-    @IBAction func resetTapped(_ sender: Any) {
+    @IBAction func discardTapped(_ sender: Any) {
         
         // define alert
-        let controller = UIAlertController(title: "Reset", message: "Are you sure you want to discard your changes", preferredStyle: .actionSheet)
+        let controller = UIAlertController(title: "Discard", message: "Are you sure you want to discard your changes", preferredStyle: .actionSheet)
         
         // define discard action
         let discardAction = UIAlertAction(title: "Discard Changes", style: .destructive) { action in
@@ -88,12 +88,12 @@ class MemeEditorVC: UIViewController, UITextFieldDelegate {
         }
         
         // define leave action
-        let leaveAction = UIAlertAction(title: "Discard & Leave", style: .cancel) { action in
+        let leaveAction = UIAlertAction(title: "Discard & Leave", style: .default) { action in
             self.dismiss(animated: true, completion: nil)
         }
         
         // define cancel action
-        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertAction.Style.default) { action in
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { action in
         }
         
         // add actions to the alert
