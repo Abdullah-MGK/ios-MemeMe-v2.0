@@ -41,7 +41,7 @@ extension MemeEditorVC {
     func share() {
         let memeImg = generateMemedImg()
         let controller = UIActivityViewController(activityItems: [memeImg], applicationActivities: nil)
-                
+        
         controller.completionWithItemsHandler = {
             (activity, success, items, error) in if success {
                 self.save(memeImg)
@@ -66,6 +66,11 @@ extension MemeEditorVC {
     
     func generateMemedImg() -> UIImage {
         
+        let textFieldIsEmpty = topTF.text == "" || bottomTF.text == ""
+        if textFieldIsEmpty {
+            toggleTextPlaceholder(hidden: true)
+        }
+        
         // Hide toolbar and navbar
         // toggleBars(hidden: true)
         
@@ -85,7 +90,7 @@ extension MemeEditorVC {
         
         // Creates an UIImage object from what has been drawn into the graphics context
         let memedImage: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
-
+        
         // Cleans image context
         UIGraphicsEndImageContext()
         
@@ -98,7 +103,22 @@ extension MemeEditorVC {
         // Show toolbar and navbar
         // toggleBars(hidden: false)
         
+        if textFieldIsEmpty {
+            toggleTextPlaceholder(hidden: false)
+        }
+        
         return memedImage
+    }
+    
+    func toggleTextPlaceholder(hidden: Bool) {
+        if hidden {
+            topTF.placeholder = ""
+            bottomTF.placeholder = ""
+        }
+        else {
+            topTF.placeholder = "TOP"
+            bottomTF.placeholder = "BOTTOM"
+        }
     }
     
     // func toggleBars(hidden: Bool) { }
