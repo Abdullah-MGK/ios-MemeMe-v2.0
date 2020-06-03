@@ -12,7 +12,7 @@ extension MemeEditorVC: UIImagePickerControllerDelegate, UINavigationControllerD
     
     @IBAction func pickImgTapped(_ sender: UIBarButtonItem) {
         
-        // present image picker based on the button clicked
+        // presents image picker based on the button clicked
         switch(ButtonType(rawValue: sender.tag)!) {
         case .camera : setImgPicker(.camera)
         case .album : setImgPicker(.photoLibrary)
@@ -21,22 +21,22 @@ extension MemeEditorVC: UIImagePickerControllerDelegate, UINavigationControllerD
     
     func setImgPicker(_ sourceType: UIImagePickerController.SourceType) {
         
-        // define imagePicker
+        // defines imagePicker
         let imagePicker = UIImagePickerController()
         
-        // assign delegate
+        // assigns self as a delegate
         imagePicker.delegate = self
         
-        // decide source based on the button
+        // decides source based on the button
         imagePicker.sourceType = sourceType
         
         // allows cropping
         imagePicker.allowsEditing = true
         
+        // presents image picker
         present(imagePicker, animated: true, completion: nil)
     }
     
-    // the user picked an image
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
         // sets the image view to the selected image dependeing on if the image is cropped (edited)
@@ -52,7 +52,6 @@ extension MemeEditorVC: UIImagePickerControllerDelegate, UINavigationControllerD
         dismiss(animated: true, completion: nil)
     }
     
-    // the user has cancelled
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         dismiss(animated: true, completion: nil)
     }

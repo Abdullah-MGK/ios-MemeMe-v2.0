@@ -14,6 +14,7 @@ protocol MemeEditorDelegate {
 
 class MemeEditorVC: UIViewController, UITextFieldDelegate {
     
+    // IBoutlets
     @IBOutlet weak var memeImgView: UIImageView!
     @IBOutlet weak var topTF: UITextField!
     @IBOutlet weak var bottomTF: UITextField!
@@ -21,14 +22,18 @@ class MemeEditorVC: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var pickFromAlbumBTN: UIBarButtonItem!
     @IBOutlet weak var shareBTN: UIBarButtonItem!
     
+    // buttons type based in tag
     enum ButtonType: Int {
         case camera = 0, album
     }
     
+    // current meme
     var meme: Meme?
+    
+    // delegates
     var delegate: MemeEditorDelegate?
     
-    // set defaultTextAttributes
+    // defaultTextAttributes
     let memeTextAttributes: [NSAttributedString.Key: Any] = [
         .strokeColor: UIColor.black,
         .foregroundColor: UIColor.white,
@@ -40,29 +45,20 @@ class MemeEditorVC: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // viewWillAppear() or viewDidAppear(), in viewWillAppear() every time the screen appears, the button is disabled, but in viewDidLoad() it will be disabled at the first time
         pickFromCamBTN.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
         
-        // set text fields style
+        // sets text fields style
         setTextFieldStyle(textField: topTF, placeHolder: "TOP")
         setTextFieldStyle(textField: bottomTF, placeHolder: "BOTTOM")
         
-        // set meme default details for text & image & share button
+        // sets meme default details for text & image & share button
         resetMeme()
         
         subscribeToKeyboardNotification()
-        
-        // hide Tabbar when using same navigation controller with push
-        // tabBarController?.tabBar.isHidden = true
-        // navigationController?.toolbar.isHidden = false
-        // and in previous controller add this
-        // hidesBottomBarWhenPushed
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        
-        // unsubscribe from keyboard notification
         unsubscribeFromKeyboardNotification()
     }
     
@@ -78,29 +74,30 @@ class MemeEditorVC: UIViewController, UITextFieldDelegate {
     
     @IBAction func discardTapped(_ sender: Any) {
         
-        // define alert
+        // shows an alert when discard is tapped
+        // defines alert
         let controller = UIAlertController(title: "Discard", message: "Are you sure you want to discard your changes", preferredStyle: .actionSheet)
         
-        // define discard action
+        // defines discard action
         let discardAction = UIAlertAction(title: "Discard Changes", style: .destructive) { action in
             self.resetMeme()
         }
         
-        // define leave action
+        // defines leave action
         let leaveAction = UIAlertAction(title: "Discard & Leave", style: .default) { action in
             self.dismiss(animated: true, completion: nil)
         }
         
-        // define cancel action
+        // defines cancel action
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { action in
         }
         
-        // add actions to the alert
+        // adds actions to the alert
         controller.addAction(discardAction)
         controller.addAction(cancelAction)
         controller.addAction(leaveAction)
         
-        // present alert
+        // presents alert
         present(controller, animated: true, completion: nil)
     }
     
@@ -111,31 +108,10 @@ class MemeEditorVC: UIViewController, UITextFieldDelegate {
         shareBTN.isEnabled = false
     }
     
-    /*
-    func resetMeme() {
-        
-        if let meme = meme {
-            memeImgView.image = meme.originalImg
-            topTF.text = meme.topTxt
-            bottomTF.text = meme.bottomTxt
-            //shareBTN.isEnabled = meme.originalImg != memeImgView.image && meme.topTxt != topTF.text && meme.bottomTxt != bottomTF.text
-        }
-        else {
-            memeImgView.image = nil
-            topTF.text = ""
-            bottomTF.text = ""
-            //shareBTN.isEnabled = memeImgView.image != nil && topTF.text != nil && bottomTF.text != nil
-        }
-        shareBTN.isEnabled = false
-    }
- */
-    
-    // reset the field when it's clicked
     func textFieldDidBeginEditing(_ textField: UITextField) {
         textField.text = ""
     }
     
-    // the user tapped return on keyboard
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         return textField.resignFirstResponder() // returns true
     }
