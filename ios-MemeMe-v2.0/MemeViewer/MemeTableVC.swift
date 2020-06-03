@@ -9,11 +9,11 @@ import UIKit
 
 class MemeTableVC: UITableViewController, MemeEditorDelegate {
     
-    // stores identifiers
+    // identifiers
     let memeCellId = "MemeCell"
     let memeDetailId = "MemeDetailVC"
     
-    // stores table row height and spacing
+    // table row height and spacing
     let rowHeight: CGFloat = 100.0
     let spacing: CGFloat = 15.0
     

@@ -15,11 +15,11 @@ class MemeCollectionVC: UICollectionViewController, MemeEditorDelegate, UICollec
         return (UIApplication.shared.delegate as! AppDelegate).memes
     }
     
-    // stores identifiers
+    // identifiers
     let memeItemId = "MemeItem"
     let memeDetailId = "MemeDetailVC"
     
-    // stores spacing
+    // spacing
     let spacing: CGFloat = 5.0
     
     override func viewWillAppear(_ animated: Bool) {
