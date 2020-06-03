@@ -60,6 +60,20 @@ class MemeTableVC: UITableViewController, MemeEditorDelegate {
         return view
     }
     
+    override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        
+        return 1
+    }
+    
+    override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        
+        // makes the spacing to be transparant
+        let view = UIView()
+        view.backgroundColor = .clear
+        
+        return view
+    }
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: memeCellId, for: indexPath)
