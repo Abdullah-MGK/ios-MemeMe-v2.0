@@ -16,7 +16,6 @@ extension MemeEditorVC {
         super.touchesBegan(touches, with: event)
     }
     
-    // subscribe to notifications (that are posted by observers)
     func subscribeToKeyboardNotification() {
         
         // create observer to keyboardWillShowNotification
@@ -28,28 +27,28 @@ extension MemeEditorVC {
         // finally the keyboard will post the notification
     }
     
-    // delete observers
     func unsubscribeFromKeyboardNotification() {
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
         
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
-    // moves the view by the keyboard height
     @objc func keyboardWillShow(_ notification: Notification) {
+        
+        // moves the view by the keyboard height
         if bottomTF.isFirstResponder {
             view.frame.origin.y = -getKeyboardHeight(notification)
         }
     }
     
-    // set the view height back by the keyboard height
     @objc func keyboardWillHide(_ notification: Notification) {
+        
+        // sets the view height back by the keyboard height
         if bottomTF.isFirstResponder {
             view.frame.origin.y = 0
         }
     }
     
-    // gets the keyboard height
     func getKeyboardHeight(_ notification: Notification) -> CGFloat {
         
         // notification info

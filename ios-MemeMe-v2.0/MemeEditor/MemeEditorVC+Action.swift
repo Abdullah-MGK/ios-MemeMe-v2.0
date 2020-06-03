@@ -12,6 +12,7 @@ extension MemeEditorVC {
     
     @IBAction func shareTapped(_ sender: Any) {
         
+        // checks if one of texts fields is empty & shows an alert if so
         if topTF.text == "" || bottomTF.text == "" {
             
             // define alert
@@ -39,15 +40,20 @@ extension MemeEditorVC {
     }
     
     func share() {
+        
+        // creates the meme UIImage
         let memeImg = generateMemedImg()
+        
+        // shows activity view controller
         let controller = UIActivityViewController(activityItems: [memeImg], applicationActivities: nil)
         
         controller.completionWithItemsHandler = {
             (activity, success, items, error) in if success {
                 
+                // adds the image to the datasource after success sharing
                 self.save(memeImg)
                 
-                // Update views when dismissing this viewcontroller after share
+                // updates views when dismissing this viewcontroller after success sharing
                 self.delegate?.updateView()
                 
                 self.dismiss(animated: true, completion: nil)
@@ -59,56 +65,39 @@ extension MemeEditorVC {
     
     func save(_ memedImg: UIImage) {
         
-        // Create the meme
+        // creates the meme
         let meme = Meme(topTxt: topTF.text!, bottomTxt: bottomTF.text!, originalImg: memeImgView.image!, memedImg: memedImg)
         
-        // Add the meme to the memes list
+        // adds the meme to the memes list
         (UIApplication.shared.delegate as! AppDelegate).memes.append(meme)
     }
     
     func generateMemedImg() -> UIImage {
         
+        // checks if textfields are empty and if so, make the placeholder empty so that it doesn't show on the image
         topTF.text == "" ? topTF.placeholder = "" : nil
         bottomTF.text == "" ? bottomTF.placeholder = "" : nil
         
-        // Hide toolbar and navbar
-        // toggleBars(hidden: true)
-        
-        // Render view to an image
-        // bounds wrt view object, frame wrt super view (screen)
-        // Creates image container: creates a new image with the same size as memeImgView.bounds.size
+        // renders view to an image
+        // creates image container as new image with the same size as memeImgView.bounds.size
         UIGraphicsBeginImageContext(memeImgView.bounds.size)
         
-        // create bounds for the area that will be snapshotted
+        // creates bounds for the area that will be snapshotted
         let bounds = CGRect(x: -memeImgView.frame.minX, y: -memeImgView.frame.minY, width: view.frame.size.width, height: view.frame.size.height)
         
-        // 'view.' takes the view with its children (not only the meme image view)
-        // 'in self.memeImgView.bounds' takes whole screen and squish in the container
-        // 'in self.view.bounds' takes the whole screen and crop it in the container
-        // using the defined bounds will solve that issue
         view.drawHierarchy(in: bounds, afterScreenUpdates: true)
         
-        // Creates an UIImage object from what has been drawn into the graphics context
+        // creates a UIImage object from what has been drawn into the graphics context
         let memedImage: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
         
-        // Cleans image context
+        // cleans image context
         UIGraphicsEndImageContext()
         
-        // or this
-        // let renderer = UIGraphicsImageRenderer(size: memeImgView.bounds.size)
-        // let memedImage = renderer.image { ctx in
-        // view.drawHierarchy(in: bounds, afterScreenUpdates: true)
-        // }
-        
-        // Show toolbar and navbar
-        // toggleBars(hidden: false)
-        
+        // checks if textfields are empty and if so, reset placeholders
         topTF.text == "" ? topTF.placeholder = "TOP" : nil
         bottomTF.text == "" ? bottomTF.placeholder = "BOTTOM" : nil
         
         return memedImage
     }
-    
-    // func toggleBars(hidden: Bool) { }
     
 }
