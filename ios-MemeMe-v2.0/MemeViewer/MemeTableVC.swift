@@ -38,7 +38,6 @@ class MemeTableVC: UITableViewController, MemeEditorDelegate {
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        
         return memes.count
     }
         
@@ -117,7 +116,6 @@ class MemeTableVC: UITableViewController, MemeEditorDelegate {
             let controller = UIActivityViewController(activityItems: [image], applicationActivities: nil)
             
             self.present(controller, animated: true, completion: nil)
-            
         })
         
         let swipeActions = UISwipeActionsConfiguration(actions: [shareAction])
