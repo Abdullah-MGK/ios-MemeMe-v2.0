@@ -74,6 +74,25 @@ class MemeTableVC: UITableViewController, MemeEditorDelegate {
         return view
     }
     
+    /*
+    override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        
+        return 1
+        // return spacing
+    }
+    
+    override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        
+        let v = UIView(frame: CGRect(x: 0, y:0, width: tableView.frame.width, height: 1))
+        v.backgroundColor = .darkGray
+        return v
+        
+        // let view = UIView()
+        // view.backgroundColor = .clear
+        // return view
+    }
+    */
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: memeCellId, for: indexPath)
@@ -109,7 +128,8 @@ class MemeTableVC: UITableViewController, MemeEditorDelegate {
          
          switch editingStyle {
          case .delete:
-             print("delete")
+             (UIApplication.shared.delegate as! AppDelegate).memes.remove(at: indexPath.row)
+             updateView()
          default: ()
          }
      }
