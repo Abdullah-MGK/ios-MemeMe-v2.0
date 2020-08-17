@@ -103,6 +103,19 @@ class MemeTableVC: UITableViewController, MemeEditorDelegate {
         return rowHeight
     }
     
+    // default swipes
+    /*
+     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+         
+         switch editingStyle {
+         case .delete:
+             print("delete")
+         default: ()
+         }
+     }
+     */
+    
+    // custom swipe to left action
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         
         // adds swipe left to delete action
@@ -119,6 +132,7 @@ class MemeTableVC: UITableViewController, MemeEditorDelegate {
         return swipeActions
     }
     
+    // custom swipe to right action
     override func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         
         // adds swipe right to share action

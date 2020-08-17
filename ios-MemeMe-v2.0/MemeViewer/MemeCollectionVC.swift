@@ -90,6 +90,27 @@ class MemeCollectionVC: UICollectionViewController, MemeEditorDelegate, UICollec
         collectionViewLayout.invalidateLayout()
     }
     
+    /*
+     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        if traitCollection.horizontalSizeClass == .regular && traitCollection.verticalSizeClass == .regular {
+            mainLabel.font = UIFont(name: "Futura-Bold", size: 75)
+        } else {
+            mainLabel.font = UIFont(name: "Futura-Bold", size: 35)
+        }
+    }
+ */
+    
+    /*
+       override func viewWillLayoutSubviews() {
+       /*
+        In viewWillLayoutSubviews, we are guaranteed that our view's size, traits, etc. are up to date.
+        It's a good place to update anything that affects the layout of our subviews.
+        However, be careful, because this method is called frequently!
+        Do as little work as possible, and don't invalidate the layout of any superviews.
+        */
+    */
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         // assigns self as delgate for MemeEditorVC in order to update the colletionView when MemeEditorVC is dismissed
