@@ -10,6 +10,8 @@ import UIKit
 
 class MemeCollectionVC: UICollectionViewController, MemeEditorDelegate, UICollectionViewDelegateFlowLayout {
     
+    //@IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
+    
     // datasource
     var memes: [Meme]! {
         return (UIApplication.shared.delegate as! AppDelegate).memes
@@ -25,6 +27,35 @@ class MemeCollectionVC: UICollectionViewController, MemeEditorDelegate, UICollec
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         updateView()
+        
+        // Done in Delegate
+        /*
+        let interfaceOrientation = UIApplication.shared.windows.first?.windowScene?.interfaceOrientation
+        
+        // can be accessed via storyboard
+        let space: CGFloat = 5.0
+        let dimension: CGFloat!
+        
+        // when the view has loaded
+        if interfaceOrientation!.isPortrait {
+            // [(screen width) - (2 spaces in between)] / [3 image columns]
+            dimension = (view.frame.size.width - (2 * space)) / 3.0
+            print("interface is portrait in willappear")
+        } else {
+            dimension = (view.frame.size.width - (5 * space)) / 1.0
+            print("interface is landscape in willappear")
+        }
+        
+        // governs the space between items within a row or column (margin)
+        flowLayout.minimumInteritemSpacing = space
+        
+        // governs the space between rows or columns (padding)
+        flowLayout.minimumLineSpacing = space
+        
+        // governs cell size
+        flowLayout.itemSize = CGSize(width: dimension, height: dimension)
+        */
+        
     }
     
     override func viewDidLoad() {
@@ -89,6 +120,102 @@ class MemeCollectionVC: UICollectionViewController, MemeEditorDelegate, UICollec
     override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
         collectionViewLayout.invalidateLayout()
     }
+    
+    /*
+       override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
+           
+           let interfaceOrientation = UIApplication.shared.windows.first?.windowScene?.interfaceOrientation
+           
+           // can be accessed via storyboard
+           let space: CGFloat = 5.0
+           let dimension: CGFloat!
+           
+           if !(interfaceOrientation!.isPortrait) {
+               // [(screen width) - (2 spaces in between)] / [3 image columns]
+               dimension = (view.frame.size.width - (2 * space)) / 3.0
+           } else {
+               dimension = (view.frame.size.width - (5 * space)) / 1.0
+           }
+           
+           // governs the space between items within a row or column (margin)
+           flowLayout.minimumInteritemSpacing = space
+           
+           // governs the space between rows or columns (padding)
+           flowLayout.minimumLineSpacing = space
+           
+           // governs cell size
+           flowLayout.itemSize = CGSize(width: dimension, height: dimension)
+           
+           collectionView?.collectionViewLayout.invalidateLayout()
+           collectionView?.reloadData()
+           
+       }
+    */
+       
+       /*
+       override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+           
+           let interfaceOrientation = UIApplication.shared.windows.first?.windowScene?.interfaceOrientation
+           
+           // can be accessed via storyboard
+           let space: CGFloat = 5.0
+           let dimension: CGFloat!
+           
+           if !(interfaceOrientation!.isPortrait) {
+               // [(screen width) - (2 spaces in between)] / [3 image columns]
+               dimension = (view.frame.size.width - (2 * space)) / 3.0
+           } else {
+               dimension = (view.frame.size.width - (5 * space)) / 1.0
+           }
+           
+           // governs the space between items within a row or column (margin)
+           flowLayout.minimumInteritemSpacing = space
+           
+           // governs the space between rows or columns (padding)
+           flowLayout.minimumLineSpacing = space
+           
+           // governs cell size
+           flowLayout.itemSize = CGSize(width: dimension, height: dimension)
+           
+           collectionView?.collectionViewLayout.invalidateLayout()
+           collectionView?.reloadData()
+           
+       }
+    */
+       
+       /*
+        override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        
+        let landscape =
+        (traitCollection.horizontalSizeClass == .regular || traitCollection.horizontalSizeClass == .compact) && traitCollection.verticalSizeClass == .compact
+        
+        // can be accessed via storyboard
+        let space: CGFloat = 5.0
+        let dimension: CGFloat!
+        
+        if !landscape {
+        print("interface is portrait in trait")
+        // [(screen width) - (2 spaces in between)] / [3 image columns]
+        dimension = (view.frame.size.width - (2 * space)) / 3.0
+        } else {
+        print("interface is landscape in trait")
+        dimension = (view.frame.size.width - (5 * space)) / 2.0
+        }
+        
+        // governs the space between items within a row or column (margin)
+        flowLayout.minimumInteritemSpacing = space
+        
+        // governs the space between rows or columns (padding)
+        flowLayout.minimumLineSpacing = space
+        
+        // governs cell size
+        flowLayout.itemSize = CGSize(width: dimension, height: dimension)
+        
+        collectionView?.collectionViewLayout.invalidateLayout()
+        collectionView?.reloadData()
+        
+        }
+        */
     
     /*
      override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
