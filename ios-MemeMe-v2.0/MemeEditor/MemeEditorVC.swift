@@ -45,6 +45,8 @@ class MemeEditorVC: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // viewWillAppear() or viewDidAppear(), in viewWillAppear() every time the screen appears, the button is disabled, but in viewDidLoad() it will be disabled at the first time
+        
         pickFromCamBTN.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
         
         // sets text fields style
@@ -55,6 +57,12 @@ class MemeEditorVC: UIViewController, UITextFieldDelegate {
         resetMeme()
         
         subscribeToKeyboardNotification()
+        
+        // hide Tabbar when using same navigation controller with push
+        // tabBarController?.tabBar.isHidden = true
+        // navigationController?.toolbar.isHidden = false
+        // and in previous controller add this
+        // hidesBottomBarWhenPushed
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -108,10 +116,31 @@ class MemeEditorVC: UIViewController, UITextFieldDelegate {
         shareBTN.isEnabled = false
     }
     
+    /*
+       func resetMeme() {
+           
+           if let meme = meme {
+               memeImgView.image = meme.originalImg
+               topTF.text = meme.topTxt
+               bottomTF.text = meme.bottomTxt
+               //shareBTN.isEnabled = meme.originalImg != memeImgView.image && meme.topTxt != topTF.text && meme.bottomTxt != bottomTF.text
+           }
+           else {
+               memeImgView.image = nil
+               topTF.text = ""
+               bottomTF.text = ""
+               //shareBTN.isEnabled = memeImgView.image != nil && topTF.text != nil && bottomTF.text != nil
+           }
+           shareBTN.isEnabled = false
+       }
+    */
+    
+    // reset the field when it's clicked
     func textFieldDidBeginEditing(_ textField: UITextField) {
         textField.text = ""
     }
     
+    // the user tapped return on keyboard
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         return textField.resignFirstResponder() // returns true
     }
