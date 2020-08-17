@@ -79,12 +79,17 @@ extension MemeEditorVC {
         bottomTF.text == "" ? bottomTF.placeholder = "" : nil
         
         // renders view to an image
+        // bounds wrt view object, frame wrt super view (screen)
         // creates image container as new image with the same size as memeImgView.bounds.size
         UIGraphicsBeginImageContext(memeImgView.bounds.size)
         
         // creates bounds for the area that will be snapshotted
         let bounds = CGRect(x: -memeImgView.frame.minX, y: -memeImgView.frame.minY, width: view.frame.size.width, height: view.frame.size.height)
         
+        // 'view.' takes the view with its children (not only the meme image view)
+        // 'in self.memeImgView.bounds' takes whole screen and squish in the container
+        // 'in self.view.bounds' takes the whole screen and crop it in the container
+        // using the defined bounds will solve that issue
         view.drawHierarchy(in: bounds, afterScreenUpdates: true)
         
         // creates a UIImage object from what has been drawn into the graphics context
@@ -92,6 +97,15 @@ extension MemeEditorVC {
         
         // cleans image context
         UIGraphicsEndImageContext()
+        
+        // or this
+        // let renderer = UIGraphicsImageRenderer(size: memeImgView.bounds.size)
+        // let memedImage = renderer.image { ctx in
+        // view.drawHierarchy(in: bounds, afterScreenUpdates: true)
+        // }
+        
+        // Show toolbar and navbar
+        // toggleBars(hidden: false)
         
         // checks if textfields are empty and if so, reset placeholders
         topTF.text == "" ? topTF.placeholder = "TOP" : nil

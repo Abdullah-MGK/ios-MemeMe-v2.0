@@ -37,6 +37,7 @@ extension MemeEditorVC: UIImagePickerControllerDelegate, UINavigationControllerD
         present(imagePicker, animated: true, completion: nil)
     }
     
+    // the user picked an image
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
         // sets the image view to the selected image dependeing on if the image is cropped (edited)
@@ -52,6 +53,7 @@ extension MemeEditorVC: UIImagePickerControllerDelegate, UINavigationControllerD
         dismiss(animated: true, completion: nil)
     }
     
+    // the user has cancelled 
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         dismiss(animated: true, completion: nil)
     }

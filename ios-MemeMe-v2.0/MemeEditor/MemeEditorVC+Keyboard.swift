@@ -16,6 +16,7 @@ extension MemeEditorVC {
         super.touchesBegan(touches, with: event)
     }
     
+    // subscribe to notifications (that are posted by observers)
     func subscribeToKeyboardNotification() {
         
         // create observer to keyboardWillShowNotification
@@ -27,6 +28,7 @@ extension MemeEditorVC {
         // finally the keyboard will post the notification
     }
     
+    // delete observers
     func unsubscribeFromKeyboardNotification() {
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
         
