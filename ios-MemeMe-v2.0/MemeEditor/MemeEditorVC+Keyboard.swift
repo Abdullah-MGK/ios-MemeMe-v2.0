@@ -1,6 +1,6 @@
 //
 //  ViewController+Keyboard.swift
-//  ios-MemeMe-v1.0
+//  ios-MemeMe-v2.0
 //
 //  Created by Abdullah Khayat on 5/17/20.
 //  Copyright © 2020 Team IOS. All rights reserved.
@@ -16,7 +16,7 @@ extension MemeEditorVC {
         super.touchesBegan(touches, with: event)
     }
     
-    // subscribe to notifications (that are posted by observers)
+    /// subscribe to notifications (that are posted by observers)
     func subscribeToKeyboardNotification() {
         
         // create observer to keyboardWillShowNotification
@@ -28,29 +28,30 @@ extension MemeEditorVC {
         // finally the keyboard will post the notification
     }
     
-    // delete observers
+    /// delete observers
     func unsubscribeFromKeyboardNotification() {
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
         
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
+    /// move the view by the keyboard height
     @objc func keyboardWillShow(_ notification: Notification) {
         
-        // moves the view by the keyboard height
         if bottomTF.isFirstResponder {
             view.frame.origin.y = -getKeyboardHeight(notification)
         }
     }
     
+    /// set the view height back by the keyboard height
     @objc func keyboardWillHide(_ notification: Notification) {
         
-        // sets the view height back by the keyboard height
         if bottomTF.isFirstResponder {
             view.frame.origin.y = 0
         }
     }
     
+    /// get keyboard size
     func getKeyboardHeight(_ notification: Notification) -> CGFloat {
         
         // notification info

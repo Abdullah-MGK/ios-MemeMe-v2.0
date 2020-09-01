@@ -1,6 +1,6 @@
 //
 //  ViewController+ImagePicker.swift
-//  ios-MemeMe-v1.0
+//  ios-MemeMe-v2.0
 //
 //  Created by Abdullah Khayat on 5/17/20.
 //  Copyright © 2020 Team IOS. All rights reserved.
@@ -19,6 +19,7 @@ extension MemeEditorVC: UIImagePickerControllerDelegate, UINavigationControllerD
         }
     }
     
+    /// SET UIActivityViewController
     func setImgPicker(_ sourceType: UIImagePickerController.SourceType) {
         
         // defines imagePicker

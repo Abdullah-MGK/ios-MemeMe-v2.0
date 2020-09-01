@@ -1,6 +1,6 @@
 //
 //  ViewController.swift
-//  ios-MemeMe-v1.0
+//  ios-MemeMe-v2.0
 //
 //  Created by Abdullah Khayat on 5/14/20.
 //  Copyright © 2020 Team IOS. All rights reserved.

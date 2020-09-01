@@ -30,9 +30,9 @@ class MemeDetailVC: UIViewController, MemeEditorDelegate {
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(editTapped))
     }
     
+    /// shows memeEditorController for the meme
+
     @objc func editTapped() {
-        
-        // shows memeEditorController for the meme
         let memeEditorNavigationController = storyboard!.instantiateViewController(withIdentifier: memeEditorNavigationId) as! UINavigationController
 
         let memeEditorController = memeEditorNavigationController.topViewController as! MemeEditorVC

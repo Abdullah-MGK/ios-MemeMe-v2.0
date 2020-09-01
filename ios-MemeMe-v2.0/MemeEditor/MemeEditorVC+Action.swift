@@ -39,6 +39,7 @@ extension MemeEditorVC {
         }
     }
     
+    /// SET UIActivityViewController
     func share() {
         
         // creates the meme UIImage
@@ -63,6 +64,7 @@ extension MemeEditorVC {
         present(controller, animated: true, completion: nil)
     }
     
+    /// ADD the meme to datasource
     func save(_ memedImg: UIImage) {
         
         // creates the meme
@@ -72,6 +74,7 @@ extension MemeEditorVC {
         (UIApplication.shared.delegate as! AppDelegate).memes.append(meme)
     }
     
+    /// GENERATE image with text on it
     func generateMemedImg() -> UIImage {
         
         // checks if textfields are empty and if so, make the placeholder empty so that it doesn't show on the image
